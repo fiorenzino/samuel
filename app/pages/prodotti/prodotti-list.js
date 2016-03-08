@@ -15,6 +15,7 @@ var ProdottiList = (function () {
         this.nav = nav;
         this.prodotti = [];
         this.prodottiService = prodottiService;
+        this.prodotti = prodottiService.prodotti;
     }
     ProdottiList.prototype.openNavDetailsPage = function (prodotto) {
         this.nav.push(prodotto_view_1.ProdottoView, { prodotto: prodotto });

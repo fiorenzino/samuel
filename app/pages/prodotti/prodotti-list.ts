@@ -12,6 +12,7 @@ export class ProdottiList {
 
     constructor(public nav:NavController, prodottiService:ProdottiService) {
         this.prodottiService = prodottiService;
+        this.prodotti=prodottiService.prodotti;
     }
 
     openNavDetailsPage(prodotto) {
