@@ -20,8 +20,10 @@ var OrdineEdit = (function () {
         this.prodotti = [];
         this.prodottiService = prodottiService;
         this.prodotti = this.prodottiService.prodotti;
+        console.log('numero prodotti:' + this.prodotti.length);
         this.ordine = new ordine_1.Ordine();
         this.clienti = clientiService.clienti;
+        console.log('numero clienti:' + this.clienti.length);
     }
     OrdineEdit.prototype.save = function () {
     };

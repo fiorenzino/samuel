@@ -19,8 +19,10 @@ export class OrdineEdit {
     constructor(@Inject(ProdottiService) prodottiService, @Inject(ClientiService) clientiService) {
         this.prodottiService = prodottiService;
         this.prodotti = this.prodottiService.prodotti;
+        console.log('numero prodotti:' + this.prodotti.length);
         this.ordine = new Ordine();
         this.clienti = clientiService.clienti;
+        console.log('numero clienti:' + this.clienti.length);
     }
 
     save() {

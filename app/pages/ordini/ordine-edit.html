@@ -18,7 +18,13 @@
             <ion-item>
                 <ion-label>Cliente</ion-label>
                 <ion-select [(ngModel)]="ordine.cliente">
-                    <option *ngFor="#c of clienti" [value]="c">{{c.name}}</option>
+                    <ion-option *ngFor="#c of clienti" [value]="c">{{c.name}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>Prdootti</ion-label>
+                <ion-select [(ngModel)]="ordine.prodotti" multiple="true">
+                    <ion-option *ngFor="#p of prodotti" [value]="p">{{p.title}}</ion-option>
                 </ion-select>
             </ion-item>
 
