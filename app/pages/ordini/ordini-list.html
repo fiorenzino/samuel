@@ -1,10 +1,25 @@
-
 <ion-navbar *navbar>
   <ion-title>
     Ordini
   </ion-title>
+  <ion-buttons>
+    <button (click)="addOrdine()">
+      <ion-icon name="create"></ion-icon>
+    </button>
+  </ion-buttons>
 </ion-navbar>
 
-<ion-content class="ordini">
 
+
+
+<ion-content padding class="ordini">
+  <ion-list>
+
+    <ion-item *ngFor="#ordine of ordini" (click)="view(ordine)">
+      <h2>{{ordine.data}}</h2>
+      <p>note: {{ordine.note}} • cliente: {{ordine.cliente.name}}</p>
+      <button clear item-right>vedi</button>
+    </ion-item>
+
+  </ion-list>
 </ion-content>

@@ -5,6 +5,7 @@ export class ProdottiService {
     prodotti:Prodotto[];
 
     constructor() {
+        console.log('prodotti service init');
         this.prodotti = [
             new Prodotto(
                 'Angular',

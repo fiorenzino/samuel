@@ -1,0 +1,27 @@
+<ion-navbar *navbar>
+    <ion-title>
+        Edit Ordine
+    </ion-title>
+</ion-navbar>
+
+<ion-content>
+    <form>
+        <ion-list>
+            <ion-item>
+                <ion-label fixed>Data</ion-label>
+                <ion-input type="text" [ngModel]="ordine.data" ></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed>Note</ion-label>
+                <ion-input type="text" [ngModel]="ordine.note"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Cliente</ion-label>
+                <ion-select [(ngModel)]="ordine.cliente">
+                    <option *ngFor="#c of clienti" [value]="c">{{c.name}}</option>
+                </ion-select>
+            </ion-item>
+
+        </ion-list>
+    </form>
+</ion-content>
