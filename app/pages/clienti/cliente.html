@@ -1,0 +1,10 @@
+<ion-navbar *navbar>
+    <ion-title>
+        scheda cliente: {{ cliente.name }}
+    </ion-title>
+</ion-navbar>
+
+<ion-content padding>
+    <ion-icon [name]="'logo-' + cliente.icon" [ngStyle]="{'color': cliente.color}"></ion-icon>
+    {{ cliente.name }}
+</ion-content>

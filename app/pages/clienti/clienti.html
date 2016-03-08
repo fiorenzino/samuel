@@ -1,0 +1,18 @@
+<ion-navbar *navbar>
+    <ion-title>
+        Clienti
+    </ion-title>
+</ion-navbar>
+
+<ion-content class="has-header">
+    <ion-list>
+
+        <ion-item *ngFor="#cliente of clienti" (click)="openNavDetailsPage(cliente)">
+            <h2>{{cliente.name}}</h2>
+            <p>{{cliente.location}} • piva: {{cliente.piva}}</p>
+            <button clear item-right>vedi</button>
+        </ion-item>
+
+    </ion-list>
+
+</ion-content>

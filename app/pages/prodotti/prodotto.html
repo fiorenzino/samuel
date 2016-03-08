@@ -1,0 +1,10 @@
+<ion-navbar *navbar>
+    <ion-title>
+        scheda prodotto: {{ prodotto.title }}
+    </ion-title>
+</ion-navbar>
+
+<ion-content padding>
+    <ion-icon [name]="'logo-' + prodotto.icon" [ngStyle]="{'color': prodotto.color}"></ion-icon>
+    {{ prodotto.description }}
+</ion-content>
