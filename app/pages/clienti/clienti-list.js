@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var ionic_angular_1 = require('ionic-angular');
 var cliente_view_1 = require('../clienti/cliente-view');
+var cliente_new_1 = require('../clienti/cliente-new');
 var ClientiList = (function () {
     function ClientiList(nav) {
         this.nav = nav;
@@ -72,6 +73,9 @@ var ClientiList = (function () {
     }
     ClientiList.prototype.openNavDetailsPage = function (cliente) {
         this.nav.push(cliente_view_1.ClienteView, { cliente: cliente });
+    };
+    ClientiList.prototype.goToNewCliente = function () {
+        this.nav.push(cliente_new_1.ClienteNew);
     };
     ClientiList = __decorate([
         ionic_angular_1.Page({
