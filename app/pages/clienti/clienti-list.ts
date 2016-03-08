@@ -16,7 +16,7 @@ export class ClientiList {
     }
 
     openNavDetailsPage(cliente) {
-        if ( cliente != null ) {
+        if ( cliente != null && cliente.name != null ) {
             this.nav.push(ClienteView, {cliente: cliente});
         }
         else {

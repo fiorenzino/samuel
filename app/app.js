@@ -11,6 +11,7 @@ var ionic_angular_1 = require('ionic-angular');
 var tabs_1 = require('./pages/tabs/tabs');
 var ordini_service_1 = require('./pages/ordini/ordini-service');
 var prodotti_service_1 = require('./pages/prodotti/prodotti-service');
+var clienti_service_1 = require('./pages/clienti/clienti-service');
 var MyApp = (function () {
     function MyApp(platform) {
         this.rootPage = tabs_1.TabsPage;
@@ -34,7 +35,7 @@ var MyApp = (function () {
     MyApp = __decorate([
         ionic_angular_1.App({
             template: '<ion-nav [root]="rootPage"></ion-nav>',
-            providers: [ordini_service_1.OrdiniService, prodotti_service_1.ProdottiService],
+            providers: [clienti_service_1.ClientiService, ordini_service_1.OrdiniService, prodotti_service_1.ProdottiService],
             config: {} // http://ionicframework.com/docs/v2/api/config/Config/
         }), 
         __metadata('design:paramtypes', [ionic_angular_1.Platform])
