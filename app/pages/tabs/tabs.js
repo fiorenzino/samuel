@@ -8,18 +8,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var ionic_angular_1 = require('ionic-angular');
-var prodotti_1 = require('../prodotti/prodotti');
-var ordini_1 = require('../ordini/ordini');
+var prodotti_list_1 = require('../prodotti/prodotti-list');
+var ordini_list_1 = require('../ordini/ordini-list');
 var home_1 = require('../home/home');
-var clienti_1 = require('../clienti/clienti');
+var clienti_list_1 = require('../clienti/clienti-list');
 var TabsPage = (function () {
     function TabsPage() {
         // this tells the tabs component which Pages
         // should be each tab's root Page
         this.tab1Root = home_1.Home;
-        this.tab2Root = clienti_1.Clienti;
-        this.tab3Root = prodotti_1.Prodotti;
-        this.tab4Root = ordini_1.Ordini;
+        this.tab2Root = clienti_list_1.ClientiList;
+        this.tab3Root = prodotti_list_1.ProdottiList;
+        this.tab4Root = ordini_list_1.OrdiniList;
     }
     TabsPage = __decorate([
         ionic_angular_1.Page({

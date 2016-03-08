@@ -9,16 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var ionic_angular_1 = require('ionic-angular');
 var ionic_angular_2 = require('ionic-angular');
-var ViewCliente = (function () {
-    function ViewCliente(params) {
+var ClienteView = (function () {
+    function ClienteView(params) {
         this.cliente = params.data.cliente;
     }
-    ViewCliente = __decorate([
+    ClienteView = __decorate([
         ionic_angular_2.Page({
-            templateUrl: 'build/pages/clienti/view-cliente.html',
+            templateUrl: 'build/pages/clienti/cliente-view.html',
         }), 
         __metadata('design:paramtypes', [ionic_angular_1.NavParams])
-    ], ViewCliente);
-    return ViewCliente;
+    ], ClienteView);
+    return ClienteView;
 })();
-exports.ViewCliente = ViewCliente;
+exports.ClienteView = ClienteView;

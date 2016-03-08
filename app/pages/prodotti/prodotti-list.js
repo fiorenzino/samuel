@@ -8,9 +8,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var ionic_angular_1 = require('ionic-angular');
-var prodotto_1 = require('../prodotti/prodotto');
-var Prodotti = (function () {
-    function Prodotti(nav) {
+var prodotto_view_1 = require('../prodotti/prodotto-view');
+var ProdottiList = (function () {
+    function ProdottiList(nav) {
         this.nav = nav;
         this.prodotti = [];
         this.prodotti = [
@@ -70,15 +70,15 @@ var Prodotti = (function () {
             },
         ];
     }
-    Prodotti.prototype.openNavDetailsPage = function (prodotto) {
-        this.nav.push(prodotto_1.Prodotto, { prodotto: prodotto });
+    ProdottiList.prototype.openNavDetailsPage = function (prodotto) {
+        this.nav.push(prodotto_view_1.ProdottoView, { prodotto: prodotto });
     };
-    Prodotti = __decorate([
+    ProdottiList = __decorate([
         ionic_angular_1.Page({
-            templateUrl: 'build/pages/prodotti/prodotti.html',
+            templateUrl: 'build/pages/prodotti/prodotti-list.html',
         }), 
         __metadata('design:paramtypes', [ionic_angular_1.NavController])
-    ], Prodotti);
-    return Prodotti;
+    ], ProdottiList);
+    return ProdottiList;
 })();
-exports.Prodotti = Prodotti;
+exports.ProdottiList = ProdottiList;

@@ -9,16 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var ionic_angular_1 = require('ionic-angular');
 var ionic_angular_2 = require('ionic-angular');
-var Prodotto = (function () {
-    function Prodotto(params) {
+var ProdottoView = (function () {
+    function ProdottoView(params) {
         this.prodotto = params.data.prodotto;
     }
-    Prodotto = __decorate([
+    ProdottoView = __decorate([
         ionic_angular_2.Page({
-            templateUrl: 'build/pages/prodotti/prodotto.html',
+            templateUrl: 'build/pages/prodotti/prodotto-view.html',
         }), 
         __metadata('design:paramtypes', [ionic_angular_1.NavParams])
-    ], Prodotto);
-    return Prodotto;
+    ], ProdottoView);
+    return ProdottoView;
 })();
-exports.Prodotto = Prodotto;
+exports.ProdottoView = ProdottoView;

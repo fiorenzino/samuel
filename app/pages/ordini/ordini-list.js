@@ -8,15 +8,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var ionic_angular_1 = require('ionic-angular');
-var Ordini = (function () {
-    function Ordini() {
+var OrdiniList = (function () {
+    function OrdiniList() {
     }
-    Ordini = __decorate([
+    OrdiniList = __decorate([
         ionic_angular_1.Page({
-            templateUrl: 'build/pages/ordini/ordini.html'
+            templateUrl: 'build/pages/ordini/ordini-list.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], Ordini);
-    return Ordini;
+    ], OrdiniList);
+    return OrdiniList;
 })();
-exports.Ordini = Ordini;
+exports.OrdiniList = OrdiniList;

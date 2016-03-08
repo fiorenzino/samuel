@@ -13,7 +13,7 @@ var EditOrdine = (function () {
     }
     EditOrdine = __decorate([
         ionic_angular_1.Page({
-            templateUrl: 'build/pages/ordini/edit.html'
+            templateUrl: 'build/pages/ordini/edit-ordine.html'
         }), 
         __metadata('design:paramtypes', [])
     ], EditOrdine);

@@ -4,9 +4,9 @@ import {Page} from 'ionic-angular';
 import {forwardRef} from 'angular2/core';
 
 @Page({
-    templateUrl: 'build/pages/prodotti/prodotto.html',
+    templateUrl: 'build/pages/prodotti/prodotto-view.html',
 })
-export class Prodotto {
+export class ProdottoView {
     prodotto: any;
 
     constructor(params: NavParams) {
