@@ -5,11 +5,12 @@ import {TabsPage} from './pages/tabs/tabs';
 import {Type} from 'angular2/core';
 import {OrdiniService} from './pages/ordini/ordini-service';
 import {ProdottiService} from './pages/prodotti/prodotti-service';
+import {ClientiService} from './pages/clienti/clienti-service';
 
 
 @App({
     template: '<ion-nav [root]="rootPage"></ion-nav>',
-    providers: [OrdiniService, ProdottiService],
+    providers: [ClientiService, OrdiniService, ProdottiService],
     config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
 export class MyApp {

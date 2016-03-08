@@ -19,7 +19,7 @@ var ClientiList = (function () {
         this.clienti = clientiService.clienti;
     }
     ClientiList.prototype.openNavDetailsPage = function (cliente) {
-        if (cliente != null) {
+        if (cliente != null && cliente.name != null) {
             this.nav.push(cliente_view_1.ClienteView, { cliente: cliente });
         }
         else {
