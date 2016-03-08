@@ -9,37 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var ionic_angular_1 = require('ionic-angular');
 var cliente_view_1 = require('../clienti/cliente-view');
-var cliente_new_1 = require('../clienti/cliente-new');
+var cliente_edit_1 = require('../clienti/cliente-edit');
+var clienti_service_1 = require('../clienti/clienti-service');
 var ClientiList = (function () {
-    function ClientiList(nav) {
+    function ClientiList(nav, clientiService) {
         this.nav = nav;
         this.clienti = [];
-        this.clienti = [
-            {
-                'name': 'Ict Group',
-                'location': 'Reggio Emilia',
-                'piva': '12345678',
-                'color': '#E63135'
-            },
-            {
-                'name': 'Manutencoop',
-                'location': 'Reggio Emilia',
-                'piva': '12345678',
-                'color': '#E63135'
-            },
-        ];
+        this.clientiService = clientiService;
+        this.clienti = clientiService.clienti;
     }
     ClientiList.prototype.openNavDetailsPage = function (cliente) {
-        this.nav.push(cliente_view_1.ClienteView, { cliente: cliente });
-    };
-    ClientiList.prototype.goToNewCliente = function () {
-        this.nav.push(cliente_new_1.ClienteNew);
+        if (cliente != null) {
+            this.nav.push(cliente_view_1.ClienteView, { cliente: cliente });
+        }
+        else {
+            this.nav.push(cliente_edit_1.ClienteEdit, { cliente: {} });
+        }
     };
     ClientiList = __decorate([
         ionic_angular_1.Page({
             templateUrl: 'build/pages/clienti/clienti-list.html'
         }), 
-        __metadata('design:paramtypes', [ionic_angular_1.NavController])
+        __metadata('design:paramtypes', [ionic_angular_1.NavController, clienti_service_1.ClientiService])
     ], ClientiList);
     return ClientiList;
 })();

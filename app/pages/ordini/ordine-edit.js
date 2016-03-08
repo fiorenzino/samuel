@@ -14,13 +14,14 @@ var ionic_angular_1 = require('ionic-angular');
 var prodotti_service_1 = require('../prodotti/prodotti-service');
 var ordine_1 = require('../ordini/ordine');
 var core_1 = require('angular2/core');
+var clienti_service_1 = require('../clienti/clienti-service');
 var OrdineEdit = (function () {
     function OrdineEdit(prodottiService, clientiService) {
         this.prodotti = [];
         this.prodottiService = prodottiService;
         this.prodotti = this.prodottiService.prodotti;
         this.ordine = new ordine_1.Ordine();
-        this.clienti = clientiService;
+        this.clienti = clientiService.clienti;
     }
     OrdineEdit.prototype.save = function () {
     };
@@ -29,7 +30,7 @@ var OrdineEdit = (function () {
             templateUrl: 'build/pages/ordini/ordine-edit.html'
         }),
         __param(0, core_1.Inject(prodotti_service_1.ProdottiService)),
-        __param(1, core_1.Inject(ClientiService)), 
+        __param(1, core_1.Inject(clienti_service_1.ClientiService)), 
         __metadata('design:paramtypes', [Object, Object])
     ], OrdineEdit);
     return OrdineEdit;

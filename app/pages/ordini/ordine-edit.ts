@@ -3,6 +3,7 @@ import {ProdottiService} from '../prodotti/prodotti-service';
 import {Ordine} from '../ordini/ordine';
 import {Inject} from 'angular2/core';
 import {Cliente} from '../clienti/cliente';
+import {ClientiService} from '../clienti/clienti-service';
 
 
 @Page({
@@ -19,7 +20,7 @@ export class OrdineEdit {
         this.prodottiService = prodottiService;
         this.prodotti = this.prodottiService.prodotti;
         this.ordine = new Ordine();
-        this.clienti = clientiService;
+        this.clienti = clientiService.clienti;
     }
 
     save() {
