@@ -1,9 +1,21 @@
+import {Ordine} from './ordine';
 export class OrdiniService {
     ordini = [];
-    ordine;
 
     constructor() {
         this.ordini = [];
-        this.ordine
+    }
+
+    add(ordine:Ordine) {
+        this.ordini.push(ordine);
+    }
+
+    delete(id:number) {
+        for (var ordine in this.ordini) {
+            if (ordine.id == id) {
+                this.ordini.pop();
+                break;
+            }
+        }
     }
 }

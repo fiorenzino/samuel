@@ -8,14 +8,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var ionic_angular_1 = require('ionic-angular');
+var ordine_edit_1 = require('../ordini/ordine-edit');
 var OrdiniList = (function () {
-    function OrdiniList() {
+    function OrdiniList(nav) {
+        this.nav = nav;
     }
+    OrdiniList.prototype.addOrdine = function () {
+        this.nav.setRoot(ordine_edit_1.OrdineEdit);
+    };
     OrdiniList = __decorate([
         ionic_angular_1.Page({
             templateUrl: 'build/pages/ordini/ordini-list.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [ionic_angular_1.NavController])
     ], OrdiniList);
     return OrdiniList;
 })();

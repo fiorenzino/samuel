@@ -1,11 +1,15 @@
 import {Cliente} from '../clienti/cliente';
+import {Prodotto} from '../prodotti/prodotto';
+
 export class Ordine {
 
+    id:number;
+    note:string;
+    data:string;
     cliente:Cliente;
-    prodotti=[];
+    prodotti = [];
 
-    constructor(cliente:Cliente) {
-        this.prodotti = [];
-        this.cliente=cliente;
+    constructor() {
+
     }
 }

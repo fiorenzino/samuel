@@ -13,4 +13,6 @@ export class ProdottoEdit {
     constructor(params: NavParams) {
         this.prodotto = params.data.prodotto;
     }
+
+
 }
