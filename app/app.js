@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var ionic_angular_1 = require('ionic-angular');
 var tabs_1 = require('./pages/tabs/tabs');
+var ordini_service_1 = require('./pages/ordini/ordini-service');
 var MyApp = (function () {
     function MyApp(platform) {
         this.rootPage = tabs_1.TabsPage;
@@ -32,6 +33,7 @@ var MyApp = (function () {
     MyApp = __decorate([
         ionic_angular_1.App({
             template: '<ion-nav [root]="rootPage"></ion-nav>',
+            providers: [ordini_service_1.OrdiniService],
             config: {} // http://ionicframework.com/docs/v2/api/config/Config/
         }), 
         __metadata('design:paramtypes', [ionic_angular_1.Platform])

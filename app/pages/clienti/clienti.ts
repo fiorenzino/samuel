@@ -1,5 +1,5 @@
 import {Page, NavController} from 'ionic-angular';
-import {Cliente} from '../clienti/cliente';
+import {ViewCliente} from '../clienti/view-cliente';
 
 @Page({
     templateUrl: 'build/pages/clienti/clienti.html'
@@ -67,6 +67,6 @@ export class Clienti {
     }
 
     openNavDetailsPage(cliente) {
-        this.nav.push(Cliente, {cliente: cliente});
+        this.nav.push(ViewCliente, {cliente: cliente});
     }
 }

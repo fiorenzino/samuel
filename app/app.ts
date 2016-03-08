@@ -3,10 +3,12 @@ import {TabsPage} from './pages/tabs/tabs';
 
 // https://angular.io/docs/ts/latest/api/core/Type-interface.html
 import {Type} from 'angular2/core';
+import {OrdiniService} from './pages/ordini/ordini-service';
 
 
 @App({
   template: '<ion-nav [root]="rootPage"></ion-nav>',
+  providers: [OrdiniService],
   config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
 export class MyApp {

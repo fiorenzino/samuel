@@ -8,7 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var ionic_angular_1 = require('ionic-angular');
-var cliente_1 = require('../clienti/cliente');
+var view_cliente_1 = require('../clienti/view-cliente');
 var Clienti = (function () {
     function Clienti(nav) {
         this.nav = nav;
@@ -71,7 +71,7 @@ var Clienti = (function () {
         ];
     }
     Clienti.prototype.openNavDetailsPage = function (cliente) {
-        this.nav.push(cliente_1.Cliente, { cliente: cliente });
+        this.nav.push(view_cliente_1.ViewCliente, { cliente: cliente });
     };
     Clienti = __decorate([
         ionic_angular_1.Page({
