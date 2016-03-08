@@ -1,7 +1,7 @@
 import {Page, NavController} from 'ionic-angular';
-import {Ordini} from '../ordini/ordini';
-import {Prodotti} from '../prodotti/prodotti';
-import {Clienti} from '../clienti/clienti';
+import {OrdiniList} from '../ordini/ordini-list';
+import {ProdottiList} from '../prodotti/prodotti-list';
+import {ClientiList} from '../clienti/clienti-list';
 
 
 @Page({
@@ -16,19 +16,19 @@ export class Home {
     pushPage;
 
     constructor(public nav:NavController) {
-        this.ordini = Ordini;
-        this.prodotti = Prodotti;
-        this.clienti = Clienti;
+        this.ordini = OrdiniList;
+        this.prodotti = ProdottiList;
+        this.clienti = ClientiList;
         this.pages = [
-            {title: 'Clienti', component: Clienti, icon: "people"},
-            {title: 'Prodotti', component: Prodotti, icon: "list"},
-            {title: 'Ordini', component: Ordini, icon: "clipboard"}
+            {title: 'Clienti', component: ClientiList, icon: "people"},
+            {title: 'Prodotti', component: ProdottiList, icon: "list"},
+            {title: 'Ordini', component: OrdiniList, icon: "clipboard"}
         ];
-        this.pushPage = Ordini;
+        this.pushPage = OrdiniList;
     }
 
     gotoClienti() {
-        this.nav.setRoot(Clienti);
+        this.nav.setRoot(ClientiList);
     }
 
     openPage(page) {

@@ -7,6 +7,7 @@ import {ClienteView} from '../clienti/cliente-view';
 export class ClientiList {
     clienti = [];
 
+
     constructor(public nav:NavController) {
         this.clienti = [
             {

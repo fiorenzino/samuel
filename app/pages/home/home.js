@@ -8,25 +8,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var ionic_angular_1 = require('ionic-angular');
-var ordini_1 = require('../ordini/ordini');
-var prodotti_1 = require('../prodotti/prodotti');
-var clienti_1 = require('../clienti/clienti');
+var ordini_list_1 = require('../ordini/ordini-list');
+var prodotti_list_1 = require('../prodotti/prodotti-list');
+var clienti_list_1 = require('../clienti/clienti-list');
 var Home = (function () {
     function Home(nav) {
         this.nav = nav;
         this.pages = [];
-        this.ordini = ordini_1.Ordini;
-        this.prodotti = prodotti_1.Prodotti;
-        this.clienti = clienti_1.Clienti;
+        this.ordini = ordini_list_1.OrdiniList;
+        this.prodotti = prodotti_list_1.ProdottiList;
+        this.clienti = clienti_list_1.ClientiList;
         this.pages = [
-            { title: 'Clienti', component: clienti_1.Clienti, icon: "people" },
-            { title: 'Prodotti', component: prodotti_1.Prodotti, icon: "list" },
-            { title: 'Ordini', component: ordini_1.Ordini, icon: "clipboard" }
+            { title: 'Clienti', component: clienti_list_1.ClientiList, icon: "people" },
+            { title: 'Prodotti', component: prodotti_list_1.ProdottiList, icon: "list" },
+            { title: 'Ordini', component: ordini_list_1.OrdiniList, icon: "clipboard" }
         ];
-        this.pushPage = ordini_1.Ordini;
+        this.pushPage = ordini_list_1.OrdiniList;
     }
     Home.prototype.gotoClienti = function () {
-        this.nav.setRoot(clienti_1.Clienti);
+        this.nav.setRoot(clienti_list_1.ClientiList);
     };
     Home.prototype.openPage = function (page) {
         this.nav.setRoot(page.component);
