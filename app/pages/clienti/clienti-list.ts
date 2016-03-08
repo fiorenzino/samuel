@@ -1,73 +1,27 @@
 import {Page, NavController} from 'ionic-angular';
 import {ClienteView} from '../clienti/cliente-view';
+import {ClienteEdit} from '../clienti/cliente-edit';
+import {ClientiService} from '../clienti/clienti-service';
 
 @Page({
     templateUrl: 'build/pages/clienti/clienti-list.html'
 })
 export class ClientiList {
     clienti = [];
+    clientiService:ClientiService;
 
-
-    constructor(public nav:NavController) {
-        this.clienti = [
-            {
-                'name': 'Ict Group',
-                'location': 'Reggio Emilia',
-                'piva': '12345678',
-                'color': '#E63135'
-            },
-            {
-                'name': 'Manutencoop',
-                'location': 'Reggio Emilia',
-                'piva': '12345678',
-                'color': '#E63135'
-            },
-            {
-                'name': 'HTML5',
-                'location': 'Reggio Emilia',
-                'piva': '12345678',
-                'color': '#E63135'
-            },
-            {
-                'name': 'JavaScript',
-                'location': 'Reggio Emilia',
-                'piva': '12345678',
-                'color': '#E63135'
-            },
-            {
-                'name': 'Sass',
-                'location': 'Reggio Emilia',
-                'piva': '12345678',
-                'color': '#E63135'
-            },
-            {
-                'name': 'NodeJS',
-                'location': 'Reggio Emilia',
-                'piva': '12345678',
-                'color': '#E63135'
-            },
-            {
-                'name': 'Python',
-                'location': 'Reggio Emilia',
-                'piva': '12345678',
-                'color': '#E63135'
-            },
-            {
-                'name': 'Markdown',
-                'location': 'Reggio Emilia',
-                'piva': '12345678',
-                'color': '#E63135'
-            },
-            {
-                'name': 'Tux',
-                'location': 'Reggio Emilia',
-                'piva': '12345678',
-                'color': '#E63135'
-            },
-        ]
+    constructor(public nav:NavController, clientiService:ClientiService) {
+        this.clientiService = clientiService;
+        this.clienti = clientiService.clienti;
     }
 
     openNavDetailsPage(cliente) {
-        this.nav.push(ClienteView, {cliente: cliente});
+        if ( cliente != null ) {
+            this.nav.push(ClienteView, {cliente: cliente});
+        }
+        else {
+            this.nav.push(ClienteEdit, {cliente: { } });
+        }
     }
+
 }
