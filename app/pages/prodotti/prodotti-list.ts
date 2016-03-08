@@ -10,7 +10,8 @@ export class ProdottiList {
     prodotti = [];
     prodottiService:ProdottiService;
 
-    constructor(public nav:NavController) {
+    constructor(public nav:NavController, prodottiService:ProdottiService) {
+        this.prodottiService = prodottiService;
     }
 
     openNavDetailsPage(prodotto) {

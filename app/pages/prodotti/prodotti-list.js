@@ -9,10 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var ionic_angular_1 = require('ionic-angular');
 var prodotto_view_1 = require('../prodotti/prodotto-view');
+var prodotti_service_1 = require('./prodotti-service');
 var ProdottiList = (function () {
-    function ProdottiList(nav) {
+    function ProdottiList(nav, prodottiService) {
         this.nav = nav;
         this.prodotti = [];
+        this.prodottiService = prodottiService;
     }
     ProdottiList.prototype.openNavDetailsPage = function (prodotto) {
         this.nav.push(prodotto_view_1.ProdottoView, { prodotto: prodotto });
@@ -21,7 +23,7 @@ var ProdottiList = (function () {
         ionic_angular_1.Page({
             templateUrl: 'build/pages/prodotti/prodotti-list.html',
         }), 
-        __metadata('design:paramtypes', [ionic_angular_1.NavController])
+        __metadata('design:paramtypes', [ionic_angular_1.NavController, prodotti_service_1.ProdottiService])
     ], ProdottiList);
     return ProdottiList;
 })();
