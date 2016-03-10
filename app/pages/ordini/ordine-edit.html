@@ -1,6 +1,9 @@
 <ion-navbar *navbar>
-    <ion-title>
+    <ion-title *ngIf="edit">
         Edit Ordine
+    </ion-title>
+    <ion-title *ngIf="!edit">
+        View Ordine
     </ion-title>
 </ion-navbar>
 
@@ -27,6 +30,10 @@
                     <ion-option *ngFor="#p of prodotti" [value]="p">{{p.title}}</ion-option>
                 </ion-select>
             </ion-item>
+
+            <button class="btn btn-default" (click)="save()" *ngIf="edit">Salva</button>
+            <button class="btn btn-default" (click)="update()" *ngIf="!edit">Aggiorna</button>
+            <button class="btn btn-default" (click)="undo()">Annulla</button>
 
         </ion-list>
     </form>

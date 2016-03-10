@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var ionic_angular_1 = require('ionic-angular');
 var prodotto_view_1 = require('../prodotti/prodotto-view');
-var prodotti_service_1 = require('./prodotti-service');
+var prodotti_service_1 = require('./../../services/prodotti-service');
 var ProdottiList = (function () {
     function ProdottiList(nav, prodottiService) {
         this.nav = nav;

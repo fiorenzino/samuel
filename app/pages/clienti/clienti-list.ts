@@ -1,7 +1,7 @@
 import {Page, NavController} from 'ionic-angular';
 import {ClienteView} from '../clienti/cliente-view';
 import {ClienteEdit} from '../clienti/cliente-edit';
-import {ClientiService} from '../clienti/clienti-service';
+import {ClientiService} from '../../services/clienti-service';
 
 @Page({
     templateUrl: 'build/pages/clienti/clienti-list.html'

@@ -7,7 +7,11 @@
         <ion-item *ngFor="#p of pages" (click)="openPage(p)">
             <ion-icon name="{{p.icon}}" item-left></ion-icon>
             {{p.title}}
-            <ion-badge item-right>10</ion-badge>
+            <ion-badge item-right>{{p.size}}</ion-badge>
+        </ion-item>
+        <ion-item (click)="logout()">
+            <ion-icon name="exit" item-left></ion-icon>
+            Logout
         </ion-item>
     </ion-list>
 </ion-content>

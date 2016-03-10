@@ -11,29 +11,44 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var ionic_angular_1 = require('ionic-angular');
-var prodotti_service_1 = require('../prodotti/prodotti-service');
-var ordine_1 = require('../ordini/ordine');
+var prodotti_service_1 = require('../../services/prodotti-service');
+var ordine_1 = require('../../model/ordine');
 var core_1 = require('angular2/core');
-var clienti_service_1 = require('../clienti/clienti-service');
+var clienti_service_1 = require('../../services/clienti-service');
+var ordini_list_1 = require('./ordini-list');
+var ordini_service_1 = require('../../services/ordini-service');
 var OrdineEdit = (function () {
-    function OrdineEdit(prodottiService, clientiService) {
+    function OrdineEdit(ordiniService, prodottiService, clientiService, nav) {
+        this.nav = nav;
+        this.edit = true;
         this.prodotti = [];
+        this.ordini = [];
         this.prodottiService = prodottiService;
         this.prodotti = this.prodottiService.prodotti;
         console.log('numero prodotti:' + this.prodotti.length);
         this.ordine = new ordine_1.Ordine();
         this.clienti = clientiService.clienti;
         console.log('numero clienti:' + this.clienti.length);
+        this.ordiniService = ordiniService;
+        this.ordini = this.ordiniService.ordini;
+        console.log('numero ordini:' + this.ordini.length);
     }
     OrdineEdit.prototype.save = function () {
+        this.ordiniService.add(this.ordine);
+        this.ordine = new ordine_1.Ordine();
+        this.nav.setRoot(ordini_list_1.OrdiniList);
+    };
+    OrdineEdit.prototype.undo = function () {
+        this.nav.setRoot(ordini_list_1.OrdiniList);
     };
     OrdineEdit = __decorate([
         ionic_angular_1.Page({
             templateUrl: 'build/pages/ordini/ordine-edit.html'
         }),
-        __param(0, core_1.Inject(prodotti_service_1.ProdottiService)),
-        __param(1, core_1.Inject(clienti_service_1.ClientiService)), 
-        __metadata('design:paramtypes', [Object, Object])
+        __param(0, core_1.Inject(ordini_service_1.OrdiniService)),
+        __param(1, core_1.Inject(prodotti_service_1.ProdottiService)),
+        __param(2, core_1.Inject(clienti_service_1.ClientiService)), 
+        __metadata('design:paramtypes', [Object, Object, Object, ionic_angular_1.NavController])
     ], OrdineEdit);
     return OrdineEdit;
 })();

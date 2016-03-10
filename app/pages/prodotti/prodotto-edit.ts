@@ -2,7 +2,7 @@
 import {NavController, NavParams} from 'ionic-angular';
 import {Page} from 'ionic-angular';
 import {forwardRef} from 'angular2/core';
-import {Prodotto} from './prodotto';
+import {Prodotto} from './../../model/prodotto';
 
 @Page({
     templateUrl: 'build/pages/prodotti/prodotto-view.html',

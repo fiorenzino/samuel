@@ -1,6 +1,6 @@
 import {Page, NavController} from 'ionic-angular';
 import {OrdineEdit} from '../ordini/ordine-edit';
-import {Ordine} from './ordine';
+import {Ordine} from './../../model/ordine';
 
 
 @Page({

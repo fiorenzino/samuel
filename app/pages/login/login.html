@@ -1,0 +1,40 @@
+<ion-navbar *navbar>
+    <ion-title>Login Page</ion-title>
+</ion-navbar>
+
+<ion-content>
+
+    <ion-list>
+        <div class="logo">
+            <img src="img/appicon.png">
+        </div>
+
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" novalidate>
+            <ion-item>
+                <ion-label floating primary>Username</ion-label>
+                <ion-input [(ngModel)]="loginData.username" ngControl="username" type="text" #username="ngForm" required>
+                </ion-input>
+            </ion-item>
+            <p [hidden]="username.valid || submitted == false" danger padding-left>
+                Username is required
+            </p>
+
+            <ion-item>
+                <ion-label floating primary>Password</ion-label>
+                <ion-input [(ngModel)]="loginData.password" ngControl="password" type="password" #password="ngForm" required>
+                </ion-input>
+            </ion-item>
+            <p [hidden]="password.valid || submitted == false" danger padding-left>
+                Password is required
+            </p>
+
+            <ion-row responsive-sm>
+                <ion-col>
+                    <button primary block>Login</button>
+                </ion-col>
+            </ion-row>
+        </form>
+    </ion-list>
+
+</ion-content>
+

@@ -1,6 +1,6 @@
 import {Page, NavController} from 'ionic-angular';
 import {ProdottoView} from '../prodotti/prodotto-view';
-import {ProdottiService} from './prodotti-service';
+import {ProdottiService} from './../../services/prodotti-service';
 
 
 @Page({

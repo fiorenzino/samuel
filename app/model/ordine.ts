@@ -1,5 +1,5 @@
-import {Cliente} from '../clienti/cliente';
-import {Prodotto} from '../prodotti/prodotto';
+import {Cliente} from './cliente';
+import {Prodotto} from './prodotto';
 
 export class Ordine {
 

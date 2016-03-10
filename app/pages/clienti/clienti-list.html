@@ -19,7 +19,7 @@
 
         <ion-item *ngFor="#cliente of clienti" (click)="openNavDetailsPage(cliente)">
             <h2>{{cliente.name}}</h2>
-            <p>{{cliente.location}} • piva: {{cliente.piva}}</p>
+            <p>{{cliente.city}} - piva: {{cliente.piva}}</p>
             <button clear item-right>vedi</button>
         </ion-item>
 

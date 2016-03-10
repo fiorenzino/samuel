@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ionic_angular_1 = require('ionic-angular');
 var cliente_view_1 = require('../clienti/cliente-view');
 var cliente_edit_1 = require('../clienti/cliente-edit');
-var clienti_service_1 = require('../clienti/clienti-service');
+var clienti_service_1 = require('../../services/clienti-service');
 var ClientiList = (function () {
     function ClientiList(nav, clientiService) {
         this.nav = nav;

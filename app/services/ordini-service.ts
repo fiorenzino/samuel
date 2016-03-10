@@ -1,4 +1,4 @@
-import {Ordine} from './ordine';
+import {Ordine} from './../model/ordine';
 export class OrdiniService {
     ordini = [];
 
