@@ -1,10 +1,21 @@
 <ion-navbar *navbar>
     <ion-title>
-        scheda prodotto: {{ prodotto.title }}
+        {{prodotto.title}}
     </ion-title>
 </ion-navbar>
 
 <ion-content padding>
-    <ion-icon [name]="'logo-' + prodotto.icon" [ngStyle]="{'color': prodotto.color}"></ion-icon>
-    {{ prodotto.description }}
+    <img [src]="'img/products/'+prodotto.img">
+    <h2>{{prodotto.title}}</h2>
+    <p>
+        <b>id</b>: {{prodotto.id}} <br/>
+        <b>categoria</b>: {{prodotto.category}} <br/>
+        <b>prezzo</b>: euro {{prodotto.price}}<br/>
+        {{prodotto.description}}
+    </p>
+    <button block (click)="openNavDetailsPage(prodotto)">
+        aggiungi
+        <ion-icon name="add-circle"></ion-icon>
+    </button>
+
 </ion-content>

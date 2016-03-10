@@ -1,22 +1,25 @@
 export class Prodotto {
     id:string;
     title:string;
-    icon:string;
+    category:string;
+    img:string;
     description:string;
     color:string;
     price:number;
 
     constructor(id:string,
+                category:string,
                 title:string,
-                icon:string,
+                img:string,
                 description:string,
                 color:string,
-    price:number) {
-        this.id=id;
+                price:number) {
+        this.id = id;
         this.title = title;
-        this.icon = icon;
+        this.category = category;
+        this.img = img;
         this.description = description;
         this.color = color;
-        this.price=price;
+        this.price = price;
     }
 }

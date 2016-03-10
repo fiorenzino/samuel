@@ -6,9 +6,15 @@
 
 <ion-content>
     <ion-list>
-        <button ion-item *ngFor="#item of prodotti" (click)="openNavDetailsPage(item)">
-            <ion-icon [name]="'logo-' + item.icon" [ngStyle]="{'color': item.color}" item-left></ion-icon>
-            {{ item.title }}
-        </button>
+        <ion-item *ngFor="#item of prodotti" (click)="openNavDetailsPage(item)">
+            <ion-thumbnail item-left>
+                <img [src]="'img/products/'+item.img">
+            </ion-thumbnail>
+            <h2>{{item.title}}</h2>
+            <p>{{item.category}} • {{item.id}} - euro {{item.price}}</p>
+            <button clear item-right (click)="openNavDetailsPage(item)">
+                <ion-icon name="arrow-dropright"></ion-icon>
+            </button>
+        </ion-item>
     </ion-list>
 </ion-content>

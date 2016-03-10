@@ -7,6 +7,7 @@ import {ClientiService} from '../../services/clienti-service';
     templateUrl: 'build/pages/clienti/clienti-list.html'
 })
 export class ClientiList {
+    searchQuery = '';
     clienti = [];
     clientiService:ClientiService;
 
@@ -22,6 +23,24 @@ export class ClientiList {
         else {
             this.nav.push(ClienteEdit, {cliente: { } });
         }
+    }
+
+    getItems(searchbar) {
+        this.clienti = this.clientiService.clienti;
+        // set q to the value of the searchbar
+        var q = searchbar.value;
+
+        // if the value is an empty string don't filter the items
+        if (q.trim() == '') {
+            return;
+        }
+
+        this.clienti = this.clienti.filter((v) => {
+            if (v.name.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+                return true;
+            }
+            return false;
+        })
     }
 
 }

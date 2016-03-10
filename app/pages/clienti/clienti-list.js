@@ -14,6 +14,7 @@ var clienti_service_1 = require('../../services/clienti-service');
 var ClientiList = (function () {
     function ClientiList(nav, clientiService) {
         this.nav = nav;
+        this.searchQuery = '';
         this.clienti = [];
         this.clientiService = clientiService;
         this.clienti = clientiService.clienti;
@@ -25,6 +26,21 @@ var ClientiList = (function () {
         else {
             this.nav.push(cliente_edit_1.ClienteEdit, { cliente: {} });
         }
+    };
+    ClientiList.prototype.getItems = function (searchbar) {
+        this.clienti = this.clientiService.clienti;
+        // set q to the value of the searchbar
+        var q = searchbar.value;
+        // if the value is an empty string don't filter the items
+        if (q.trim() == '') {
+            return;
+        }
+        this.clienti = this.clienti.filter(function (v) {
+            if (v.name.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+                return true;
+            }
+            return false;
+        });
     };
     ClientiList = __decorate([
         ionic_angular_1.Page({
