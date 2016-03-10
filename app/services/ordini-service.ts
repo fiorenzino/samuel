@@ -3,6 +3,7 @@ export class OrdiniService {
     ordini = [];
 
     constructor() {
+        console.log('init ordini service');
         this.ordini = [];
     }
 

@@ -17,6 +17,7 @@ var core_1 = require('angular2/core');
 var clienti_service_1 = require('../../services/clienti-service');
 var ordini_list_1 = require('./ordini-list');
 var ordini_service_1 = require('../../services/ordini-service');
+var common_1 = require("angular2/common");
 var OrdineEdit = (function () {
     function OrdineEdit(ordiniService, prodottiService, clientiService, nav) {
         this.nav = nav;
@@ -36,14 +37,17 @@ var OrdineEdit = (function () {
     OrdineEdit.prototype.save = function () {
         this.ordiniService.add(this.ordine);
         this.ordine = new ordine_1.Ordine();
+        this.nav.pop(OrdineEdit);
         this.nav.setRoot(ordini_list_1.OrdiniList);
     };
     OrdineEdit.prototype.undo = function () {
+        this.nav.pop(OrdineEdit);
         this.nav.setRoot(ordini_list_1.OrdiniList);
     };
     OrdineEdit = __decorate([
         ionic_angular_1.Page({
-            templateUrl: 'build/pages/ordini/ordine-edit.html'
+            templateUrl: 'build/pages/ordini/ordine-edit.html',
+            directives: [common_1.FORM_DIRECTIVES]
         }),
         __param(0, core_1.Inject(ordini_service_1.OrdiniService)),
         __param(1, core_1.Inject(prodotti_service_1.ProdottiService)),

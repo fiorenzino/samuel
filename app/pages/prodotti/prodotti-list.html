@@ -1,10 +1,15 @@
 <ion-navbar *navbar>
+    <ion-buttons start>
+        <button (click)="openNavDetailsPage()">
+            <ion-icon name="add-circle"></ion-icon>
+        </button>
+    </ion-buttons>
     <ion-title>
         Prodotti
     </ion-title>
 </ion-navbar>
-
 <ion-content>
+    <ion-searchbar [(ngModel)]="searchQuery" (input)="getItems($event)"></ion-searchbar>
     <ion-list>
         <ion-item *ngFor="#item of prodotti" (click)="openNavDetailsPage(item)">
             <ion-thumbnail item-left>

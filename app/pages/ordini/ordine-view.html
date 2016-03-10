@@ -1,28 +1,28 @@
 <ion-navbar *navbar>
     <ion-title>
-        {{prodotto.title}}
+        {{ordine.title}}
     </ion-title>
 </ion-navbar>
 
 <ion-content padding>
     <ion-card>
-        <img [src]="'img/products/'+prodotto.img">
+        <img [src]="'img/products/'+ordine.img">
         <ion-card-content>
             <ion-card-title>
-                {{prodotto.title}}
+                {{ordine.title}}
             </ion-card-title>
             <p>
-                {{prodotto.description}}
+                {{ordine.description}}
             </p>
             <p>
-                <b>id</b>: {{prodotto.id}} <br/>
-                <b>categoria</b>: {{prodotto.category}} <br/>
-                <b>prezzo</b>: euro {{prodotto.price}}<br/>
+                <b>id</b>: {{ordine.id}} <br/>
+                <b>categoria</b>: {{ordine.category}} <br/>
+                <b>prezzo</b>: euro {{ordine.price}}<br/>
             </p>
 
         </ion-card-content>
         <ion-card-content>
-            <button block (click)="openNavDetailsPage(prodotto)">
+            <button block (click)="openNavDetailsPage(ordine)">
                 aggiungi
                 <ion-icon name="add-circle"></ion-icon>
             </button>

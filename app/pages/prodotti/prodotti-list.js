@@ -13,12 +13,28 @@ var prodotti_service_1 = require('./../../services/prodotti-service');
 var ProdottiList = (function () {
     function ProdottiList(nav, prodottiService) {
         this.nav = nav;
+        this.searchQuery = '';
         this.prodotti = [];
         this.prodottiService = prodottiService;
         this.prodotti = prodottiService.prodotti;
     }
     ProdottiList.prototype.openNavDetailsPage = function (prodotto) {
         this.nav.push(prodotto_view_1.ProdottoView, { prodotto: prodotto });
+    };
+    ProdottiList.prototype.getItems = function (searchbar) {
+        this.prodotti = this.prodottiService.prodotti;
+        // set q to the value of the searchbar
+        var q = searchbar.value;
+        // if the value is an empty string don't filter the items
+        if (q.trim() == '') {
+            return;
+        }
+        this.prodotti = this.prodotti.filter(function (v) {
+            if (v.title.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+                return true;
+            }
+            return false;
+        });
     };
     ProdottiList = __decorate([
         ionic_angular_1.Page({

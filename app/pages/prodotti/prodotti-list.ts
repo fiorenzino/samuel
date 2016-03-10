@@ -7,6 +7,7 @@ import {ProdottiService} from './../../services/prodotti-service';
     templateUrl: 'build/pages/prodotti/prodotti-list.html',
 })
 export class ProdottiList {
+    searchQuery = '';
     prodotti = [];
     prodottiService:ProdottiService;
 
@@ -17,5 +18,23 @@ export class ProdottiList {
 
     openNavDetailsPage(prodotto) {
         this.nav.push(ProdottoView, {prodotto: prodotto});
+    }
+
+    getItems(searchbar) {
+        this.prodotti = this.prodottiService.prodotti;
+        // set q to the value of the searchbar
+        var q = searchbar.value;
+
+        // if the value is an empty string don't filter the items
+        if (q.trim() == '') {
+            return;
+        }
+
+        this.prodotti = this.prodotti.filter((v) => {
+            if (v.title.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+                return true;
+            }
+            return false;
+        })
     }
 }

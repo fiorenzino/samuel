@@ -11,7 +11,7 @@
 
         <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" novalidate>
             <ion-item>
-                <ion-label floating primary>Username</ion-label>
+                <ion-label>Username</ion-label>
                 <ion-input [(ngModel)]="loginData.username" ngControl="username" type="text" #username="ngForm" required>
                 </ion-input>
             </ion-item>
@@ -20,7 +20,7 @@
             </p>
 
             <ion-item>
-                <ion-label floating primary>Password</ion-label>
+                <ion-label>Password</ion-label>
                 <ion-input [(ngModel)]="loginData.password" ngControl="password" type="password" #password="ngForm" required>
                 </ion-input>
             </ion-item>

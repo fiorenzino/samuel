@@ -8,11 +8,11 @@
 </ion-navbar>
 
 <ion-content>
-    <form>
+    <form #ordiniForm="ngForm" novalidate>
         <ion-list>
             <ion-item>
                 <ion-label fixed>Data</ion-label>
-                <ion-input type="text" [ngModel]="ordine.data" ></ion-input>
+                <ion-input type="date" [ngModel]="ordine.data" ></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label fixed>Note</ion-label>

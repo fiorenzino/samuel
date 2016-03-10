@@ -6,11 +6,13 @@ import {Cliente} from '../../model/cliente';
 import {ClientiService} from '../../services/clienti-service';
 import {OrdiniList} from './ordini-list';
 import {OrdiniService} from '../../services/ordini-service';
+import {NgForm, FORM_DIRECTIVES} from "angular2/common";
 
 
 
 @Page({
-    templateUrl: 'build/pages/ordini/ordine-edit.html'
+    templateUrl: 'build/pages/ordini/ordine-edit.html',
+    directives: [FORM_DIRECTIVES]
 })
 export class OrdineEdit {
     edit:boolean = true;
@@ -37,10 +39,12 @@ export class OrdineEdit {
     save() {
         this.ordiniService.add(this.ordine);
         this.ordine= new Ordine();
+        this.nav.pop(OrdineEdit);
         this.nav.setRoot(OrdiniList);
     }
 
     undo() {
+        this.nav.pop(OrdineEdit);
         this.nav.setRoot(OrdiniList);
     }
 }

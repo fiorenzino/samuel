@@ -1,10 +1,23 @@
 <ion-navbar *navbar>
     <ion-title>
-        scheda cliente: {{ cliente.name }}
+        {{cliente.name}}
     </ion-title>
 </ion-navbar>
 
 <ion-content padding>
-    <ion-icon [name]="'logo-' + cliente.icon" [ngStyle]="{'color': cliente.color}"></ion-icon>
-    {{ cliente.name }}
+    <ion-card>
+        <ion-card-content>
+            <ion-card-title>
+                {{cliente.name}}
+            </ion-card-title>
+            <p>
+                <b>id</b>: {{cliente.id}} <br/>
+                <b>location</b>: {{cliente.location}} <br/>
+                <b>city</b>: {{cliente.city}} {{cliente.province}} <br/>
+                <b>piva</b>: {{cliente.piva}}<br/>
+            </p>
+
+        </ion-card-content>
+    </ion-card>
+
 </ion-content>

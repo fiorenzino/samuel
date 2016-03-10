@@ -1,0 +1,15 @@
+
+import {NavController, NavParams} from 'ionic-angular';
+import {Page} from 'ionic-angular';
+import {forwardRef} from 'angular2/core';
+
+@Page({
+    templateUrl: 'build/pages/ordini/ordine-view.html',
+})
+export class OrdineView {
+    ordine: any;
+
+    constructor(params: NavParams) {
+        this.ordine = params.data.ordine;
+    }
+}
