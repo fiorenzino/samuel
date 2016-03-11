@@ -1,4 +1,4 @@
-import {Page, NavController} from 'ionic-angular';
+import {Page, NavController, IonicApp} from 'ionic-angular';
 import {OrdiniList} from '../ordini/ordini-list';
 import {ProdottiList} from '../prodotti/prodotti-list';
 import {Login} from '../login/login';
@@ -26,7 +26,7 @@ export class Home implements OnInit {
     pushPage;
     securityService:SecurityService;
 
-    constructor(public nav:NavController, @Inject(SecurityService) securityService, @Inject(ProdottiService) prodottiService,
+    constructor(public app: IonicApp, public nav:NavController, @Inject(SecurityService) securityService, @Inject(ProdottiService) prodottiService,
                 @Inject(OrdiniService) ordiniService, @Inject(ClientiService) clientiService) {
         this.ordini = OrdiniList;
         this.prodotti = ProdottiList;
@@ -35,11 +35,11 @@ export class Home implements OnInit {
         this.ordiniSize = ordiniService.ordini.length;
         this.clientiSize = clientiService.clienti.length;
         this.pages = [
-            {title: 'Clienti', component: ClientiList, icon: "people", size: this.clientiSize},
-            {title: 'Catalogo Prodotti', component: ProdottiList, icon: "list", size: this.prodottiSize},
-            {title: 'Ordini', component: OrdiniList, icon: "clipboard", size: this.ordiniSize},
-            {title: 'Nuovo Ordine', component: OrdineEdit, icon: "add-circle", size: '0'},
-            {title: 'Sincronizzazione Dati', component: OrdineEdit, icon: "refresh-circle", size: '0'}
+            {title: 'Clienti', component: ClientiList, icon: "people", size: this.clientiSize, index: 1},
+            {title: 'Catalogo Prodotti', component: ProdottiList, icon: "list", size: this.prodottiSize, index: 2},
+            {title: 'Ordini', component: OrdiniList, icon: "clipboard", size: this.ordiniSize, index: 3},
+            {title: 'Nuovo Ordine', component: OrdineEdit, icon: "add-circle", size: '0', index: 4},
+            {title: 'Sincronizzazione Dati', component: OrdineEdit, icon: "refresh-circle", size: '0', index: 4}
         ];
         this.pushPage = OrdiniList;
         this.securityService = securityService;
@@ -60,7 +60,8 @@ export class Home implements OnInit {
     }
 
     openPage(page) {
-        this.nav.setRoot(page.component);
+        this.app.getComponent("tabs").select(page.index);
+//        this.nav.setRoot(page.component);
     }
 
     logout() {

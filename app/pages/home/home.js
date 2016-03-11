@@ -22,7 +22,8 @@ var prodotti_service_1 = require("../../services/prodotti-service");
 var ordini_service_1 = require("../../services/ordini-service");
 var clienti_service_1 = require("../../services/clienti-service");
 var Home = (function () {
-    function Home(nav, securityService, prodottiService, ordiniService, clientiService) {
+    function Home(app, nav, securityService, prodottiService, ordiniService, clientiService) {
+        this.app = app;
         this.nav = nav;
         this.pages = [];
         this.ordini = ordini_list_1.OrdiniList;
@@ -32,11 +33,11 @@ var Home = (function () {
         this.ordiniSize = ordiniService.ordini.length;
         this.clientiSize = clientiService.clienti.length;
         this.pages = [
-            { title: 'Clienti', component: clienti_list_1.ClientiList, icon: "people", size: this.clientiSize },
-            { title: 'Catalogo Prodotti', component: prodotti_list_1.ProdottiList, icon: "list", size: this.prodottiSize },
-            { title: 'Ordini', component: ordini_list_1.OrdiniList, icon: "clipboard", size: this.ordiniSize },
-            { title: 'Nuovo Ordine', component: ordine_edit_1.OrdineEdit, icon: "add-circle", size: '0' },
-            { title: 'Sincronizzazione Dati', component: ordine_edit_1.OrdineEdit, icon: "refresh-circle", size: '0' }
+            { title: 'Clienti', component: clienti_list_1.ClientiList, icon: "people", size: this.clientiSize, index: 1 },
+            { title: 'Catalogo Prodotti', component: prodotti_list_1.ProdottiList, icon: "list", size: this.prodottiSize, index: 2 },
+            { title: 'Ordini', component: ordini_list_1.OrdiniList, icon: "clipboard", size: this.ordiniSize, index: 3 },
+            { title: 'Nuovo Ordine', component: ordine_edit_1.OrdineEdit, icon: "add-circle", size: '0', index: 4 },
+            { title: 'Sincronizzazione Dati', component: ordine_edit_1.OrdineEdit, icon: "refresh-circle", size: '0', index: 4 }
         ];
         this.pushPage = ordini_list_1.OrdiniList;
         this.securityService = securityService;
@@ -51,7 +52,8 @@ var Home = (function () {
         this.nav.setRoot(clienti_list_1.ClientiList);
     };
     Home.prototype.openPage = function (page) {
-        this.nav.setRoot(page.component);
+        this.app.getComponent("tabs").select(page.index);
+        //        this.nav.setRoot(page.component);
     };
     Home.prototype.logout = function () {
         this.securityService.logout();
@@ -61,11 +63,11 @@ var Home = (function () {
         ionic_angular_1.Page({
             templateUrl: 'build/pages/home/home.html',
         }),
-        __param(1, core_1.Inject(security_service_1.SecurityService)),
-        __param(2, core_1.Inject(prodotti_service_1.ProdottiService)),
-        __param(3, core_1.Inject(ordini_service_1.OrdiniService)),
-        __param(4, core_1.Inject(clienti_service_1.ClientiService)), 
-        __metadata('design:paramtypes', [ionic_angular_1.NavController, Object, Object, Object, Object])
+        __param(2, core_1.Inject(security_service_1.SecurityService)),
+        __param(3, core_1.Inject(prodotti_service_1.ProdottiService)),
+        __param(4, core_1.Inject(ordini_service_1.OrdiniService)),
+        __param(5, core_1.Inject(clienti_service_1.ClientiService)), 
+        __metadata('design:paramtypes', [ionic_angular_1.IonicApp, ionic_angular_1.NavController, Object, Object, Object, Object])
     ], Home);
     return Home;
 })();
