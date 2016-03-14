@@ -66,7 +66,7 @@ export class Home {
 
     openPage(page) {
         this.app.getComponent("tabs").select(page.index);
-//        this.nav.setRoot(page.component);
+        this.nav.push(page.component);
     }
 
     logout() {
