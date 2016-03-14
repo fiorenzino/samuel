@@ -20,7 +20,7 @@ var OrdiniList = (function () {
         this.ordini = ordiniService.ordini;
     }
     OrdiniList.prototype.openNavDetailsPage = function (ordine) {
-        this.nav.push(ordine_view_1.OrdineView, { id: ordine.id });
+        this.nav.push(ordine_view_1.OrdineView, { ordine: ordine });
     };
     OrdiniList.prototype.getItems = function (searchbar) {
         this.ordini = this.ordiniService.ordini;
