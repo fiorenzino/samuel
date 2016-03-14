@@ -15,15 +15,15 @@ import {NgForm, FORM_DIRECTIVES} from "angular2/common";
 })
 export class OrdineEdit {
     edit:boolean = true;
-    prodottiService:ProdottiService;
-    clientiService:ClientiService;
     prodotti = [];
     ordine:Ordine;
     clienti:Cliente[];
-    ordiniService:OrdiniService;
     ordini = [];
 
-    constructor(@Inject(OrdiniService) ordiniService, @Inject(ProdottiService) prodottiService, @Inject(ClientiService) clientiService, public nav:NavController) {
+    constructor(@Inject(OrdiniService) public ordiniService,
+                @Inject(ProdottiService) public prodottiService,
+                @Inject(ClientiService) public clientiService,
+                public nav:NavController) {
        console.log('creo ordini edit');
         this.clienti = clientiService.clienti;
         this.ordiniService = ordiniService;
@@ -39,6 +39,7 @@ export class OrdineEdit {
     }
 
     undo() {
+        this.ordiniService.reset();
         this.nav.pop();
         //this.nav.setRoot(OrdiniList);
     }

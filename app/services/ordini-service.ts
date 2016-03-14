@@ -19,6 +19,10 @@ export class OrdiniService {
         console.log('size: ' + this.ordine.prodotti.length);
     }
 
+    reset(){
+        this.ordine = new Ordine();
+    }
+
     delete(id:number) {
         for (var ordine in this.ordini) {
             if (ordine.id == id) {

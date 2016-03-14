@@ -18,6 +18,9 @@ var ordini_service_1 = require('../../services/ordini-service');
 var common_1 = require("angular2/common");
 var OrdineEdit = (function () {
     function OrdineEdit(ordiniService, prodottiService, clientiService, nav) {
+        this.ordiniService = ordiniService;
+        this.prodottiService = prodottiService;
+        this.clientiService = clientiService;
         this.nav = nav;
         this.edit = true;
         this.prodotti = [];
@@ -34,6 +37,7 @@ var OrdineEdit = (function () {
         //this.nav.setRoot(OrdiniList);
     };
     OrdineEdit.prototype.undo = function () {
+        this.ordiniService.reset();
         this.nav.pop();
         //this.nav.setRoot(OrdiniList);
     };
