@@ -13,9 +13,9 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 var ionic_angular_1 = require('ionic-angular');
 var ordini_list_1 = require('../ordini/ordini-list');
 var prodotti_list_1 = require('../prodotti/prodotti-list');
-var login_1 = require('../login/login');
 var clienti_list_1 = require('../clienti/clienti-list');
 var ordine_edit_1 = require('../ordini/ordine-edit');
+//import {Inject, OnInit} from "angular2/core";
 var core_1 = require("angular2/core");
 var security_service_1 = require("../../services/security-service");
 var prodotti_service_1 = require("../../services/prodotti-service");
@@ -42,12 +42,15 @@ var Home = (function () {
         this.pushPage = ordini_list_1.OrdiniList;
         this.securityService = securityService;
     }
-    Home.prototype.ngOnInit = function () {
+    /*
+    ngOnInit() {
         console.log(this.securityService.isLogged());
         if (!this.securityService.isLogged()) {
-            this.nav.setRoot(login_1.Login);
+            this.nav.setRoot(Login);
         }
-    };
+
+    }
+    */
     Home.prototype.gotoClienti = function () {
         this.nav.setRoot(clienti_list_1.ClientiList);
     };
@@ -57,7 +60,7 @@ var Home = (function () {
     };
     Home.prototype.logout = function () {
         this.securityService.logout();
-        this.nav.setRoot(login_1.Login);
+        this.nav.pop();
     };
     Home = __decorate([
         ionic_angular_1.Page({

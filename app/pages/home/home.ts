@@ -2,9 +2,11 @@ import {Page, NavController, IonicApp} from 'ionic-angular';
 import {OrdiniList} from '../ordini/ordini-list';
 import {ProdottiList} from '../prodotti/prodotti-list';
 import {Login} from '../login/login';
+import {TabsPage} from '../tabs/tabs';
 import {ClientiList} from '../clienti/clienti-list';
 import {OrdineEdit} from '../ordini/ordine-edit';
-import {Inject, OnInit} from "angular2/core";
+//import {Inject, OnInit} from "angular2/core";
+import {Inject} from "angular2/core";
 import {SecurityService} from "../../services/security-service";
 import {ProdottiService} from "../../services/prodotti-service";
 import {OrdiniService} from "../../services/ordini-service";
@@ -14,7 +16,8 @@ import {ClientiService} from "../../services/clienti-service";
 @Page({
     templateUrl: 'build/pages/home/home.html',
 })
-export class Home implements OnInit {
+//export class Home implements OnInit {
+export class Home {
 
     prodotti:any;
     ordini:any;
@@ -46,6 +49,7 @@ export class Home implements OnInit {
     }
 
 
+    /*
     ngOnInit() {
         console.log(this.securityService.isLogged());
         if (!this.securityService.isLogged()) {
@@ -53,6 +57,7 @@ export class Home implements OnInit {
         }
 
     }
+    */
 
 
     gotoClienti() {
@@ -66,7 +71,7 @@ export class Home implements OnInit {
 
     logout() {
         this.securityService.logout();
-        this.nav.setRoot(Login);
+        this.nav.pop();
     }
 
 

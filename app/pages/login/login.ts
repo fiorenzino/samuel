@@ -1,8 +1,9 @@
 import {Page, NavController} from 'ionic-angular';
 import {Inject} from "angular2/core";
 import {SecurityService} from "../../services/security-service";
-import {Home} from "../home/home";
+//import {Home} from "../home/home";
 import {NgForm, FORM_DIRECTIVES} from "angular2/common";
+import {TabsPage} from '../tabs/tabs';
 
 
 @Page({
@@ -18,7 +19,8 @@ export class Login {
     securityService:SecurityService;
 
     constructor(public nav:NavController, @Inject(SecurityService) securityService) {
-        this.pushPage = Home;
+        //this.pushPage = Home;
+        this.pushPage = TabsPage;
         this.securityService = securityService;
         this.loginData = {
             username: '',
@@ -35,7 +37,7 @@ export class Login {
             console.log('username: ' + this.loginData.username + ' password:' + this.loginData.password);
             if (this.loginData.username === 'admin' && this.loginData.password === 'admin') {
                 this.securityService.login();
-                this.nav.setRoot(this.pushPage);
+                this.nav.push(this.pushPage);
             } else {
                 this.message = 'login error';
             }
