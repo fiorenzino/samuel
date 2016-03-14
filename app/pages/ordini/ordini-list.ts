@@ -18,7 +18,7 @@ export class OrdiniList {
     }
 
     openNavDetailsPage(ordine) {
-        this.nav.push(OrdineView, {ordine: ordine});
+        this.nav.push(OrdineView);
     }
 
     getItems(searchbar) {

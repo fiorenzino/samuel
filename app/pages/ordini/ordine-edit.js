@@ -12,7 +12,6 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var ionic_angular_1 = require('ionic-angular');
 var prodotti_service_1 = require('../../services/prodotti-service');
-var ordine_1 = require('../../model/ordine');
 var core_1 = require('angular2/core');
 var clienti_service_1 = require('../../services/clienti-service');
 var ordini_list_1 = require('./ordini-list');
@@ -24,19 +23,14 @@ var OrdineEdit = (function () {
         this.edit = true;
         this.prodotti = [];
         this.ordini = [];
-        this.prodottiService = prodottiService;
-        this.prodotti = this.prodottiService.prodotti;
-        console.log('numero prodotti:' + this.prodotti.length);
-        this.ordine = new ordine_1.Ordine();
+        console.log('creo ordini edit');
         this.clienti = clientiService.clienti;
-        console.log('numero clienti:' + this.clienti.length);
         this.ordiniService = ordiniService;
-        this.ordini = this.ordiniService.ordini;
-        console.log('numero ordini:' + this.ordini.length);
+        this.ordine = this.ordiniService.ordine;
+        console.log(JSON.stringify(this.ordine));
     }
     OrdineEdit.prototype.save = function () {
         this.ordiniService.add(this.ordine);
-        this.ordine = new ordine_1.Ordine();
         this.nav.pop(OrdineEdit);
         this.nav.setRoot(ordini_list_1.OrdiniList);
     };

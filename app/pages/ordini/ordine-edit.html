@@ -12,7 +12,7 @@
         <ion-list>
             <ion-item>
                 <ion-label fixed>Data</ion-label>
-                <ion-input type="date" [ngModel]="ordine.data" ></ion-input>
+                <ion-input type="date" [ngModel]="ordine.data"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label fixed>Note</ion-label>
@@ -24,12 +24,14 @@
                     <ion-option *ngFor="#c of clienti" [value]="c">{{c.name}}</ion-option>
                 </ion-select>
             </ion-item>
-            <ion-item>
-                <ion-label>Prdootti</ion-label>
-                <ion-select [(ngModel)]="ordine.prodotti" multiple="true">
-                    <ion-option *ngFor="#p of prodotti" [value]="p">{{p.title}}</ion-option>
-                </ion-select>
-            </ion-item>
+            <ion-list>
+                <ion-list-header>
+                    Prodootti
+                </ion-list-header>
+                <ion-item *ngFor="#item of ordine.prodotti" (click)="remove(item)">
+                    {{item.title}}
+                </ion-item>
+            </ion-list>
 
             <button class="btn btn-default" (click)="save()" *ngIf="edit">Salva</button>
             <button class="btn btn-default" (click)="update()" *ngIf="!edit">Aggiorna</button>

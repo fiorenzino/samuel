@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var ionic_angular_1 = require('ionic-angular');
 var ionic_angular_2 = require('ionic-angular');
+var addProdotto_1 = require("../ordini/addProdotto");
 var ProdottoView = (function () {
     function ProdottoView(params) {
         this.prodotto = params.data.prodotto;
@@ -16,6 +17,7 @@ var ProdottoView = (function () {
     ProdottoView = __decorate([
         ionic_angular_2.Page({
             templateUrl: 'build/pages/prodotti/prodotto-view.html',
+            directives: [addProdotto_1.AddProdotto]
         }), 
         __metadata('design:paramtypes', [ionic_angular_1.NavParams])
     ], ProdottoView);

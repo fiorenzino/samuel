@@ -35,7 +35,7 @@ var MyApp = (function () {
     }
     MyApp = __decorate([
         ionic_angular_1.App({
-            template: '<ion-nav [root]="rootPage"></ion-nav>',
+            template: '<ion-nav id="my-nav" [root]="rootPage"></ion-nav>',
             providers: [clienti_service_1.ClientiService, ordini_service_1.OrdiniService, prodotti_service_1.ProdottiService, security_service_1.SecurityService],
             config: {} // http://ionicframework.com/docs/v2/api/config/Config/
         }), 

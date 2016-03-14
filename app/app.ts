@@ -10,7 +10,7 @@ import {SecurityService} from './services/security-service';
 
 
 @App({
-    template: '<ion-nav [root]="rootPage"></ion-nav>',
+    template: '<ion-nav id="my-nav" [root]="rootPage"></ion-nav>',
     providers: [ClientiService, OrdiniService, ProdottiService, SecurityService],
     config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })

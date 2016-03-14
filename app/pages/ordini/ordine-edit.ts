@@ -9,7 +9,6 @@ import {OrdiniService} from '../../services/ordini-service';
 import {NgForm, FORM_DIRECTIVES} from "angular2/common";
 
 
-
 @Page({
     templateUrl: 'build/pages/ordini/ordine-edit.html',
     directives: [FORM_DIRECTIVES]
@@ -22,23 +21,19 @@ export class OrdineEdit {
     ordine:Ordine;
     clienti:Cliente[];
     ordiniService:OrdiniService;
-    ordini=[];
+    ordini = [];
 
-    constructor(@Inject(OrdiniService) ordiniService,@Inject(ProdottiService) prodottiService, @Inject(ClientiService) clientiService, public nav:NavController) {
-        this.prodottiService = prodottiService;
-        this.prodotti = this.prodottiService.prodotti;
-        console.log('numero prodotti:' + this.prodotti.length);
-        this.ordine = new Ordine();
+    constructor(@Inject(OrdiniService) ordiniService, @Inject(ProdottiService) prodottiService, @Inject(ClientiService) clientiService, public nav:NavController) {
+       console.log('creo ordini edit');
         this.clienti = clientiService.clienti;
-        console.log('numero clienti:' + this.clienti.length);
-        this.ordiniService=ordiniService;
-        this.ordini =this.ordiniService.ordini;
-        console.log('numero ordini:' + this.ordini.length);
+        this.ordiniService = ordiniService;
+        this.ordine = this.ordiniService.ordine;
+        console.log(JSON.stringify(this.ordine));
+
     }
 
     save() {
         this.ordiniService.add(this.ordine);
-        this.ordine= new Ordine();
         this.nav.pop(OrdineEdit);
         this.nav.setRoot(OrdiniList);
     }
