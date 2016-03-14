@@ -34,6 +34,10 @@ var OrdineEdit = (function () {
         this.ordiniService.decrProdotto(id);
         console.log('decr: ' + id);
     };
+    OrdineEdit.prototype.remove = function (id) {
+        this.ordiniService.delProdotto(id);
+        console.log('delProdotto: ' + id);
+    };
     OrdineEdit.prototype.incr = function (id) {
         this.ordiniService.incrProdotto(id);
         console.log('incr: ' + id);

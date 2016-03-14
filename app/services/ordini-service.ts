@@ -61,11 +61,11 @@ export class OrdiniService {
         }
     }
 
-    delProdotto(prodotto:Prodotto) {
+    delProdotto(id:number) {
         for (var num in this.ordine.prodotti) {
             var ordineProd = this.ordine.prodotti[num];
-            if (ordineProd.prodotto.id == prodotto.id) {
-                this.ordine.prodotti.pop();
+            if (ordineProd.prodotto.id == id) {
+                this.ordine.prodotti.splice(num, 1);
                 console.log('elimino : ' + JSON.stringify(ordineProd));
                 break;
             }

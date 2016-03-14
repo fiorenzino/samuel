@@ -1,32 +1,32 @@
 <ion-navbar *navbar>
     <ion-title>
-        {{ordine.title}}
+        View Ordine
     </ion-title>
 </ion-navbar>
 
 <ion-content padding>
     <ion-card>
-        <img [src]="'img/products/'+ordine.img">
-        <ion-card-content>
-            <ion-card-title>
-                {{ordine.title}}
-            </ion-card-title>
-            <p>
-                {{ordine.description}}
-            </p>
-            <p>
-                <b>id</b>: {{ordine.id}} <br/>
-                <b>categoria</b>: {{ordine.category}} <br/>
-                <b>prezzo</b>: euro {{ordine.price}}<br/>
-            </p>
-
-        </ion-card-content>
-        <ion-card-content>
-            <button block (click)="openNavDetailsPage(ordine)">
-                aggiungi
-                <ion-icon name="add-circle"></ion-icon>
-            </button>
-        </ion-card-content>
+        Data: {{ordine.data}}
     </ion-card>
+    <ion-card>
+        Note {{ordine.note}}
+    </ion-card>
+    <ion-card>
+        Cliente {{ordine.cliente.name}}
+    </ion-card>
+    <ion-list>
+        <ion-list-header>
+            Prodootti
+        </ion-list-header>
+        <ion-item *ngFor="#item of ordine.prodotti">
+            {{item.prodotto.title}} [euro {{item.prodotto.price}}]
+            <ion-badge item-right>
+                {{item.quantita}} - euro {{item.parziale | currency:'EUR':true:'1.2-2'}}
+            </ion-badge>
+        </ion-item>
+    </ion-list>
+    <ion-item>
+        Totale: euro {{ordine.total | currency:'EUR':true:'1.2-2'}}
+    </ion-item>
 
 </ion-content>

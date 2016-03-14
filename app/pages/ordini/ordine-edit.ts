@@ -36,6 +36,11 @@ export class OrdineEdit {
         console.log('decr: ' + id);
     }
 
+    remove(id:number) {
+        this.ordiniService.delProdotto(id);
+        console.log('delProdotto: ' + id);
+    }
+
     incr(id:number) {
         this.ordiniService.incrProdotto(id);
         console.log('incr: ' + id);

@@ -29,14 +29,20 @@
                     Prodootti
                 </ion-list-header>
                 <ion-item *ngFor="#item of ordine.prodotti">
-                    {{item.prodotto.title}}
+                    <ion-icon name="remove-circle" (click)="remove(item.prodotto.id)"></ion-icon>
+                    {{item.prodotto.title}} [euro {{item.prodotto.price}}]
                     <ion-badge item-right>
                         <ion-icon name="add-circle" (click)="incr(item.prodotto.id)"></ion-icon>
-                        {{item.quantita}}
+                        {{item.quantita}} - euro {{item.parziale | currency:'EUR':true:'1.2-2'}}
                         <ion-icon name="remove-circle" (click)="decr(item.prodotto.id)"></ion-icon>
                     </ion-badge>
                 </ion-item>
             </ion-list>
+            <ion-item>
+                Totale: euro {{ordine.total | currency:'EUR':true:'1.2-2'}}
+
+            </ion-item>
+
 
             <button class="btn btn-default" (click)="save()" *ngIf="edit">Salva</button>
             <button class="btn btn-default" (click)="update()" *ngIf="!edit">Aggiorna</button>
