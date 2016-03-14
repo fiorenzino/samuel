@@ -56,7 +56,7 @@ var Home = (function () {
     };
     Home.prototype.openPage = function (page) {
         this.app.getComponent("tabs").select(page.index);
-        //        this.nav.setRoot(page.component);
+        this.nav.push(page.component);
     };
     Home.prototype.logout = function () {
         this.securityService.logout();
