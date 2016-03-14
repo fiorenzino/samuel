@@ -1,11 +1,9 @@
 import {Prodotto} from "./prodotto";
 export class ProdottoOrdine {
-    prodotto:Prodotto;
     quantita:number;
     parziale:number;
 
-    constructor(prodotto:Prodotto) {
-        this.prodotto = prodotto;
+    constructor(public prodotto:Prodotto) {
         this.quantita = 1;
         this.parziale = (this.quantita*this.prodotto.price);
     }

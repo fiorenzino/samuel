@@ -7,16 +7,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 var ordine_edit_1 = require('./ordine-edit');
 var ionic_angular_1 = require('ionic-angular');
 var ordini_service_1 = require('../../services/ordini-service');
 var ordine_view_1 = require('./ordine-view');
+var core_1 = require("angular2/core");
 var OrdiniList = (function () {
     function OrdiniList(nav, ordiniService) {
         this.nav = nav;
+        this.ordiniService = ordiniService;
         this.searchQuery = '';
         this.ordini = [];
-        this.ordiniService = ordiniService;
         this.ordini = ordiniService.ordini;
     }
     OrdiniList.prototype.openNavDetailsPage = function (ordine) {
@@ -43,8 +47,9 @@ var OrdiniList = (function () {
     OrdiniList = __decorate([
         ionic_angular_1.Page({
             templateUrl: 'build/pages/ordini/ordini-list.html',
-        }), 
-        __metadata('design:paramtypes', [ionic_angular_1.NavController, ordini_service_1.OrdiniService])
+        }),
+        __param(1, core_1.Inject(ordini_service_1.OrdiniService)), 
+        __metadata('design:paramtypes', [ionic_angular_1.NavController, Object])
     ], OrdiniList);
     return OrdiniList;
 })();

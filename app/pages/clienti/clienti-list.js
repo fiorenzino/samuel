@@ -7,13 +7,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 var ionic_angular_1 = require('ionic-angular');
 var cliente_view_1 = require('../clienti/cliente-view');
 var cliente_edit_1 = require('../clienti/cliente-edit');
 var clienti_service_1 = require('../../services/clienti-service');
+var core_1 = require("angular2/core");
 var ClientiList = (function () {
     function ClientiList(nav, clientiService) {
         this.nav = nav;
+        this.clientiService = clientiService;
         this.searchQuery = '';
         this.clienti = [];
         this.clientiService = clientiService;
@@ -45,8 +50,9 @@ var ClientiList = (function () {
     ClientiList = __decorate([
         ionic_angular_1.Page({
             templateUrl: 'build/pages/clienti/clienti-list.html'
-        }), 
-        __metadata('design:paramtypes', [ionic_angular_1.NavController, clienti_service_1.ClientiService])
+        }),
+        __param(1, core_1.Inject(clienti_service_1.ClientiService)), 
+        __metadata('design:paramtypes', [ionic_angular_1.NavController, Object])
     ], ClientiList);
     return ClientiList;
 })();

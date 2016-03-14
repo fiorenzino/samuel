@@ -2,6 +2,7 @@ import {OrdineEdit} from './ordine-edit';
 import {Page, NavController} from 'ionic-angular';
 import {OrdiniService} from '../../services/ordini-service';
 import {OrdineView} from './ordine-view';
+import {Inject} from "angular2/core";
 
 
 @Page({
@@ -10,15 +11,14 @@ import {OrdineView} from './ordine-view';
 export class OrdiniList {
     searchQuery = '';
     ordini = [];
-    ordiniService:OrdiniService;
 
-    constructor(public nav:NavController, ordiniService:OrdiniService) {
-        this.ordiniService = ordiniService;
+    constructor(public nav:NavController,
+                @Inject(OrdiniService) public ordiniService) {
         this.ordini = ordiniService.ordini;
     }
 
     openNavDetailsPage(ordine) {
-        this.nav.push(OrdineView, {ordine: ordine} );
+        this.nav.push(OrdineView, {ordine: ordine});
     }
 
     getItems(searchbar) {

@@ -3,9 +3,9 @@ var Cliente = (function () {
         this.id = id;
         this.name = name;
         this.province = province;
+        this.location = location;
         this.city = city;
         this.piva = piva;
-        this.location = location;
     }
     return Cliente;
 })();

@@ -2,6 +2,7 @@ import {Page, NavController} from 'ionic-angular';
 import {ClienteView} from '../clienti/cliente-view';
 import {ClienteEdit} from '../clienti/cliente-edit';
 import {ClientiService} from '../../services/clienti-service';
+import {Inject} from "angular2/core";
 
 @Page({
     templateUrl: 'build/pages/clienti/clienti-list.html'
@@ -9,19 +10,19 @@ import {ClientiService} from '../../services/clienti-service';
 export class ClientiList {
     searchQuery = '';
     clienti = [];
-    clientiService:ClientiService;
 
-    constructor(public nav:NavController, clientiService:ClientiService) {
+    constructor(public nav:NavController,
+                @Inject(ClientiService) public clientiService) {
         this.clientiService = clientiService;
         this.clienti = clientiService.clienti;
     }
 
     openNavDetailsPage(cliente) {
-        if ( cliente != null && cliente.name != null ) {
+        if (cliente != null && cliente.name != null) {
             this.nav.push(ClienteView, {cliente: cliente});
         }
         else {
-            this.nav.push(ClienteEdit, {cliente: { } });
+            this.nav.push(ClienteEdit, {cliente: {}});
         }
     }
 

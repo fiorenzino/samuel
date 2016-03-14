@@ -1,6 +1,7 @@
 import {Page, NavController} from 'ionic-angular';
 import {ProdottoView} from '../prodotti/prodotto-view';
 import {ProdottiService} from './../../services/prodotti-service';
+import {Inject} from "angular2/core";
 
 
 @Page({
@@ -9,11 +10,10 @@ import {ProdottiService} from './../../services/prodotti-service';
 export class ProdottiList {
     searchQuery = '';
     prodotti = [];
-    prodottiService:ProdottiService;
 
-    constructor(public nav:NavController, prodottiService:ProdottiService) {
-        this.prodottiService = prodottiService;
-        this.prodotti=prodottiService.prodotti;
+    constructor(public nav:NavController,
+                @Inject(ProdottiService) public prodottiService) {
+        this.prodotti = prodottiService.prodotti;
     }
 
     openNavDetailsPage(prodotto) {
