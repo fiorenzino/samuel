@@ -22,8 +22,8 @@ export class OrdiniService {
             var ordineProd = this.ordine.prodotti[num];
             if (ordineProd.prodotto.id == id) {
                 ordineProd.incr();
-                this.ordine.prodotti.pop();
-                this.ordine.prodotti.push(ordineProd);
+                //this.ordine.prodotti.pop();
+                //this.ordine.prodotti.push(ordineProd);
                 console.log('incrProdotto di: ' + JSON.stringify(ordineProd));
                 break;
             }
@@ -35,8 +35,8 @@ export class OrdiniService {
             var ordineProd = this.ordine.prodotti[num];
             if (ordineProd.prodotto.id == id) {
                 ordineProd.decr();
-                this.ordine.prodotti.pop();
-                this.ordine.prodotti.push(ordineProd);
+                //this.ordine.prodotti.pop();
+                //this.ordine.prodotti.push(ordineProd);
                 console.log('decrProdotto di: ' + JSON.stringify(ordineProd));
                 break;
             }
