@@ -27,10 +27,17 @@ var OrdineEdit = (function () {
         this.ordini = [];
         console.log('creo ordini edit');
         this.clienti = clientiService.clienti;
-        this.ordiniService = ordiniService;
         this.ordine = this.ordiniService.ordine;
         console.log(JSON.stringify(this.ordine));
     }
+    OrdineEdit.prototype.decr = function (id) {
+        this.ordiniService.decrProdotto(id);
+        console.log('decr: ' + id);
+    };
+    OrdineEdit.prototype.incr = function (id) {
+        this.ordiniService.incrProdotto(id);
+        console.log('incr: ' + id);
+    };
     OrdineEdit.prototype.save = function () {
         this.ordiniService.save(this.ordine);
         this.nav.pop();

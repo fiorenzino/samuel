@@ -24,12 +24,21 @@ export class OrdineEdit {
                 @Inject(ProdottiService) public prodottiService,
                 @Inject(ClientiService) public clientiService,
                 public nav:NavController) {
-       console.log('creo ordini edit');
+        console.log('creo ordini edit');
         this.clienti = clientiService.clienti;
-        this.ordiniService = ordiniService;
         this.ordine = this.ordiniService.ordine;
         console.log(JSON.stringify(this.ordine));
 
+    }
+
+    decr(id:number) {
+        this.ordiniService.decrProdotto(id);
+        console.log('decr: ' + id);
+    }
+
+    incr(id:number) {
+        this.ordiniService.incrProdotto(id);
+        console.log('incr: ' + id);
     }
 
     save() {

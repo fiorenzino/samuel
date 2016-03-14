@@ -28,8 +28,13 @@
                 <ion-list-header>
                     Prodootti
                 </ion-list-header>
-                <ion-item *ngFor="#item of ordine.prodotti" (click)="remove(item)">
-                    {{item.title}}
+                <ion-item *ngFor="#item of ordine.prodotti">
+                    {{item.prodotto.title}}
+                    <ion-badge item-right>
+                        <ion-icon name="add-circle" (click)="incr(item.prodotto.id)"></ion-icon>
+                        {{item.quantita}}
+                        <ion-icon name="remove-circle" (click)="decr(item.prodotto.id)"></ion-icon>
+                    </ion-badge>
                 </ion-item>
             </ion-list>
 

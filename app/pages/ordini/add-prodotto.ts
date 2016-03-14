@@ -23,11 +23,9 @@ import {Injectable} from "angular2/core";
 @Injectable()
 export class AddProdotto {
 
-    ordiniService:OrdiniService;
-
-    constructor(public app:IonicApp, @Inject(OrdiniService) ordiniService) {
+    constructor(public app:IonicApp,
+                @Inject(OrdiniService) public ordiniService) {
         console.log('creo addProdotto')
-        this.ordiniService = ordiniService;
     }
 
     add(prodotto:Prodotto) {

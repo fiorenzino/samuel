@@ -8,14 +8,14 @@ export class ProdottoOrdine {
         this.parziale = (this.quantita*this.prodotto.price);
     }
 
-    add() {
-        this.quantita += 1;
+    decr() {
+        this.quantita = this.quantita + 1;
         this.parziale = (this.quantita*this.prodotto.price);
     }
 
-    remove() {
+    incr() {
         if (this.quantita > 1) {
-            this.quantita -= 1;
+            this.quantita = this.quantita - 1;
             this.parziale = (this.quantita*this.prodotto.price);
         }
     }
