@@ -14,7 +14,6 @@ var ionic_angular_1 = require('ionic-angular');
 var prodotti_service_1 = require('../../services/prodotti-service');
 var core_1 = require('angular2/core');
 var clienti_service_1 = require('../../services/clienti-service');
-var ordini_list_1 = require('./ordini-list');
 var ordini_service_1 = require('../../services/ordini-service');
 var common_1 = require("angular2/common");
 var OrdineEdit = (function () {
@@ -31,12 +30,12 @@ var OrdineEdit = (function () {
     }
     OrdineEdit.prototype.save = function () {
         this.ordiniService.add(this.ordine);
-        this.nav.pop(OrdineEdit);
-        this.nav.setRoot(ordini_list_1.OrdiniList);
+        this.nav.pop();
+        //this.nav.setRoot(OrdiniList);
     };
     OrdineEdit.prototype.undo = function () {
-        this.nav.pop(OrdineEdit);
-        this.nav.setRoot(ordini_list_1.OrdiniList);
+        this.nav.pop();
+        //this.nav.setRoot(OrdiniList);
     };
     OrdineEdit = __decorate([
         ionic_angular_1.Page({

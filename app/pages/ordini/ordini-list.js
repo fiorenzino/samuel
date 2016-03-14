@@ -20,7 +20,7 @@ var OrdiniList = (function () {
         this.ordini = ordiniService.ordini;
     }
     OrdiniList.prototype.openNavDetailsPage = function (ordine) {
-        this.nav.push(ordine_view_1.OrdineView);
+        this.nav.push(ordine_view_1.OrdineView, { id: ordine.id });
     };
     OrdiniList.prototype.getItems = function (searchbar) {
         this.ordini = this.ordiniService.ordini;
@@ -38,7 +38,7 @@ var OrdiniList = (function () {
         });
     };
     OrdiniList.prototype.addOrdine = function () {
-        this.nav.setRoot(ordine_edit_1.OrdineEdit);
+        this.nav.push(ordine_edit_1.OrdineEdit);
     };
     OrdiniList = __decorate([
         ionic_angular_1.Page({

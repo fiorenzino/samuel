@@ -13,7 +13,7 @@
   <ion-searchbar [(ngModel)]="searchQuery" (input)="getItems($event)"></ion-searchbar>
   <ion-list>
 
-    <ion-item *ngFor="#ordine of ordini" (click)="view(ordine)">
+    <ion-item *ngFor="#ordine of ordini" (click)="openNavDetailsPage(ordine)">
       <h2>{{ordine.data}}</h2>
       <p>note: {{ordine.note}} • cliente: {{ordine.cliente.name}}</p>
       <button clear item-right (click)="view(ordine)">

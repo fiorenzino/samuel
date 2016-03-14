@@ -18,7 +18,7 @@ export class OrdiniList {
     }
 
     openNavDetailsPage(ordine) {
-        this.nav.push(OrdineView);
+        this.nav.push(OrdineView, {id: ordine.id});
     }
 
     getItems(searchbar) {
@@ -40,7 +40,7 @@ export class OrdiniList {
     }
 
     addOrdine() {
-        this.nav.setRoot(OrdineEdit);
+        this.nav.push(OrdineEdit);
     }
 
 }

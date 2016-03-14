@@ -34,12 +34,12 @@ export class OrdineEdit {
 
     save() {
         this.ordiniService.add(this.ordine);
-        this.nav.pop(OrdineEdit);
-        this.nav.setRoot(OrdiniList);
+        this.nav.pop();
+        //this.nav.setRoot(OrdiniList);
     }
 
     undo() {
-        this.nav.pop(OrdineEdit);
-        this.nav.setRoot(OrdiniList);
+        this.nav.pop();
+        //this.nav.setRoot(OrdiniList);
     }
 }
