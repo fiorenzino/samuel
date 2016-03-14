@@ -49,8 +49,7 @@ var OrdineEdit = (function () {
     };
     OrdineEdit.prototype.undo = function () {
         this.ordiniService.reset();
-        this.nav.pop();
-        //this.nav.setRoot(OrdiniList);
+        this.nav.popToRoot();
     };
     OrdineEdit = __decorate([
         ionic_angular_1.Page({

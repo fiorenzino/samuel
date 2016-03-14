@@ -61,11 +61,11 @@ export class Home {
 
     gotoNuovoOrdine(){
         //this.app.getComponent("tabs").select(3);
-        this.nav.setRoot(OrdineEdit);
+        this.nav.push(OrdineEdit);
     }
 
     gotoSincronizzazioneDati(){
-        this.nav.setRoot(Home);
+        this.nav.push(Home);
     }
 
     logout() {

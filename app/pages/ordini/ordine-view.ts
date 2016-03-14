@@ -10,7 +10,7 @@ import {Inject} from "angular2/core";
 export class OrdineView {
     ordine:any;
 
-    constructor(params:NavParams, @Inject(OrdiniService) ordiniService) {
-        this.ordine = ordiniService.ordine;
+    constructor(params:NavParams) {
+        this.ordine = params.data.ordine;
     }
 }

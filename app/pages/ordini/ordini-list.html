@@ -1,5 +1,5 @@
 <ion-navbar *navbar>
-  <ion-buttons start>
+  <ion-buttons start >
     <button (click)="addOrdine()">
       <ion-icon name="add-circle"></ion-icon>
     </button>
@@ -14,8 +14,8 @@
   <ion-list>
 
     <ion-item *ngFor="#ordine of ordini" (click)="openNavDetailsPage(ordine)">
-      <h2>{{ordine.data}}</h2>
-      <p>note: {{ordine.note}} • cliente: {{ordine.cliente.name}}</p>
+      <h2>{{ordine.cliente.name}} -  {{ordine.data}}</h2>
+      <p>euro: {{ordine.total  | currency:'EUR':true:'1.2-2'}}</p>
       <button clear item-right (click)="view(ordine)">
         <ion-icon name="arrow-dropright"></ion-icon>
       </button>

@@ -53,10 +53,10 @@ var Home = (function () {
     };
     Home.prototype.gotoNuovoOrdine = function () {
         //this.app.getComponent("tabs").select(3);
-        this.nav.setRoot(ordine_edit_1.OrdineEdit);
+        this.nav.push(ordine_edit_1.OrdineEdit);
     };
     Home.prototype.gotoSincronizzazioneDati = function () {
-        this.nav.setRoot(Home);
+        this.nav.push(Home);
     };
     Home.prototype.logout = function () {
         this.securityService.logout();

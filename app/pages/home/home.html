@@ -18,7 +18,7 @@
         </ion-item>
 
         <ion-item (click)="gotoOrdini()">
-            <ion-icon name="list" item-left></ion-icon>
+            <ion-icon name="clipboard" item-left></ion-icon>
             Ordini
             <ion-badge item-right>{{ordiniSize}}</ion-badge>
         </ion-item>
@@ -28,7 +28,7 @@
             Nuovo Ordine
         </ion-item>
 
-        <ion-item (click)="gotoSincronizzazioneDati()">
+        <ion-item (click)="gotoSincronizzazioneDati()" *ngIf="false">
             <ion-icon name="refresh-circle" item-left></ion-icon>
             Sincronizzazione Dati
         </ion-item>

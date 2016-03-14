@@ -54,7 +54,6 @@ export class OrdineEdit {
 
     undo() {
         this.ordiniService.reset();
-        this.nav.pop();
-        //this.nav.setRoot(OrdiniList);
+        this.nav.popToRoot();
     }
 }

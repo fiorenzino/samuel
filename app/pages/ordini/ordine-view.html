@@ -5,19 +5,23 @@
 </ion-navbar>
 
 <ion-content padding>
-    <ion-card>
-        Data: {{ordine.data}}
-    </ion-card>
-    <ion-card>
-        Note {{ordine.note}}
-    </ion-card>
-    <ion-card>
-        Cliente {{ordine.cliente.name}}
-    </ion-card>
+    <ion-item>
+        <ion-icon name="people" item-left large></ion-icon>
+        <h2>Cliente</h2>
+        <p>{{ordine.cliente.name}}</p>
+    </ion-item>
+    <ion-item>
+        <ion-icon name="calendar" item-left large></ion-icon>
+        <h2>Data</h2>
+        <p>{{ordine.data}}</p>
+    </ion-item>
+    <ion-item>
+        <ion-icon name="text" item-left large></ion-icon>
+        <h2>Note</h2>
+        <p>{{ordine.note}}</p>
+    </ion-item>
     <ion-list>
-        <ion-list-header>
-            Prodootti
-        </ion-list-header>
+        <h2>Prodotti</h2>
         <ion-item *ngFor="#item of ordine.prodotti">
             {{item.prodotto.title}} [euro {{item.prodotto.price}}]
             <ion-badge item-right>
