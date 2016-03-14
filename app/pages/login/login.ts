@@ -16,12 +16,11 @@ export class Login {
     submitted:boolean = false;
     message:string;
     pushPage;
-    securityService:SecurityService;
 
-    constructor(public nav:NavController, @Inject(SecurityService) securityService) {
+    constructor(public nav:NavController,
+                @Inject(SecurityService) public securityService) {
         //this.pushPage = Home;
         this.pushPage = TabsPage;
-        this.securityService = securityService;
         this.loginData = {
             username: '',
             password: ''

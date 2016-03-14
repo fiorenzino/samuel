@@ -32,7 +32,7 @@ var OrdineEdit = (function () {
         console.log(JSON.stringify(this.ordine));
     }
     OrdineEdit.prototype.save = function () {
-        this.ordiniService.add(this.ordine);
+        this.ordiniService.save(this.ordine);
         this.nav.pop();
         //this.nav.setRoot(OrdiniList);
     };

@@ -33,7 +33,7 @@ export class OrdineEdit {
     }
 
     save() {
-        this.ordiniService.add(this.ordine);
+        this.ordiniService.save(this.ordine);
         this.nav.pop();
         //this.nav.setRoot(OrdiniList);
     }

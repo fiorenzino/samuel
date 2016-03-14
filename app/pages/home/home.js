@@ -11,9 +11,6 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var ionic_angular_1 = require('ionic-angular');
-var ordini_list_1 = require('../ordini/ordini-list');
-var prodotti_list_1 = require('../prodotti/prodotti-list');
-var clienti_list_1 = require('../clienti/clienti-list');
 var ordine_edit_1 = require('../ordini/ordine-edit');
 //import {Inject, OnInit} from "angular2/core";
 var core_1 = require("angular2/core");
@@ -25,22 +22,13 @@ var Home = (function () {
     function Home(app, nav, securityService, prodottiService, ordiniService, clientiService) {
         this.app = app;
         this.nav = nav;
-        this.pages = [];
-        this.ordini = ordini_list_1.OrdiniList;
-        this.prodotti = prodotti_list_1.ProdottiList;
-        this.clienti = clienti_list_1.ClientiList;
+        this.securityService = securityService;
+        this.prodottiService = prodottiService;
+        this.ordiniService = ordiniService;
+        this.clientiService = clientiService;
         this.prodottiSize = prodottiService.prodotti.length;
         this.ordiniSize = ordiniService.ordini.length;
         this.clientiSize = clientiService.clienti.length;
-        this.pages = [
-            { title: 'Clienti', component: clienti_list_1.ClientiList, icon: "people", size: this.clientiSize, index: 1 },
-            { title: 'Catalogo Prodotti', component: prodotti_list_1.ProdottiList, icon: "list", size: this.prodottiSize, index: 2 },
-            { title: 'Ordini', component: ordini_list_1.OrdiniList, icon: "clipboard", size: this.ordiniSize, index: 3 },
-            { title: 'Nuovo Ordine', component: ordine_edit_1.OrdineEdit, icon: "add-circle", size: '0', index: 4 },
-            { title: 'Sincronizzazione Dati', component: ordine_edit_1.OrdineEdit, icon: "refresh-circle", size: '0', index: 4 }
-        ];
-        this.pushPage = ordini_list_1.OrdiniList;
-        this.securityService = securityService;
     }
     /*
     ngOnInit() {
@@ -52,11 +40,23 @@ var Home = (function () {
     }
     */
     Home.prototype.gotoClienti = function () {
-        this.nav.setRoot(clienti_list_1.ClientiList);
+        this.app.getComponent("tabs").select(1);
+        //this.nav.setRoot(ClientiList);
     };
-    Home.prototype.openPage = function (page) {
-        this.app.getComponent("tabs").select(page.index);
-        this.nav.push(page.component);
+    Home.prototype.gotoProdotti = function () {
+        this.app.getComponent("tabs").select(2);
+        //this.nav.setRoot(ProdottiList);
+    };
+    Home.prototype.gotoOrdini = function () {
+        this.app.getComponent("tabs").select(3);
+        //this.nav.setRoot(OrdiniList);
+    };
+    Home.prototype.gotoNuovoOrdine = function () {
+        //this.app.getComponent("tabs").select(3);
+        this.nav.setRoot(ordine_edit_1.OrdineEdit);
+    };
+    Home.prototype.gotoSincronizzazioneDati = function () {
+        this.nav.setRoot(Home);
     };
     Home.prototype.logout = function () {
         this.securityService.logout();

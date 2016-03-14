@@ -18,34 +18,19 @@ import {ClientiService} from "../../services/clienti-service";
 })
 //export class Home implements OnInit {
 export class Home {
-
-    prodotti:any;
-    ordini:any;
-    clienti:any;
     prodottiSize:number;
     ordiniSize:number;
     clientiSize:number;
-    pages = [];
-    pushPage;
-    securityService:SecurityService;
 
-    constructor(public app: IonicApp, public nav:NavController, @Inject(SecurityService) securityService, @Inject(ProdottiService) prodottiService,
-                @Inject(OrdiniService) ordiniService, @Inject(ClientiService) clientiService) {
-        this.ordini = OrdiniList;
-        this.prodotti = ProdottiList;
-        this.clienti = ClientiList;
+    constructor(public app: IonicApp,
+                public nav:NavController,
+                @Inject(SecurityService) public securityService,
+                @Inject(ProdottiService) public prodottiService,
+                @Inject(OrdiniService) public ordiniService,
+                @Inject(ClientiService) public clientiService) {
         this.prodottiSize = prodottiService.prodotti.length;
         this.ordiniSize = ordiniService.ordini.length;
         this.clientiSize = clientiService.clienti.length;
-        this.pages = [
-            {title: 'Clienti', component: ClientiList, icon: "people", size: this.clientiSize, index: 1},
-            {title: 'Catalogo Prodotti', component: ProdottiList, icon: "list", size: this.prodottiSize, index: 2},
-            {title: 'Ordini', component: OrdiniList, icon: "clipboard", size: this.ordiniSize, index: 3},
-            {title: 'Nuovo Ordine', component: OrdineEdit, icon: "add-circle", size: '0', index: 4},
-            {title: 'Sincronizzazione Dati', component: OrdineEdit, icon: "refresh-circle", size: '0', index: 4}
-        ];
-        this.pushPage = OrdiniList;
-        this.securityService = securityService;
     }
 
 
@@ -61,12 +46,26 @@ export class Home {
 
 
     gotoClienti() {
-        this.nav.setRoot(ClientiList);
+        this.app.getComponent("tabs").select(1);
+        //this.nav.setRoot(ClientiList);
+    }
+    gotoProdotti() {
+        this.app.getComponent("tabs").select(2);
+        //this.nav.setRoot(ProdottiList);
     }
 
-    openPage(page) {
-        this.app.getComponent("tabs").select(page.index);
-        this.nav.push(page.component);
+    gotoOrdini() {
+        this.app.getComponent("tabs").select(3);
+        //this.nav.setRoot(OrdiniList);
+    }
+
+    gotoNuovoOrdine(){
+        //this.app.getComponent("tabs").select(3);
+        this.nav.setRoot(OrdineEdit);
+    }
+
+    gotoSincronizzazioneDati(){
+        this.nav.setRoot(Home);
     }
 
     logout() {

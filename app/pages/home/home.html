@@ -4,11 +4,36 @@
 
 <ion-content padding class="home">
     <ion-list>
-        <ion-item *ngFor="#p of pages" (click)="openPage(p)">
-            <ion-icon name="{{p.icon}}" item-left></ion-icon>
-            {{p.title}}
-            <ion-badge item-right>{{p.size}}</ion-badge>
+
+        <ion-item (click)="gotoClienti()">
+            <ion-icon name="people" item-left></ion-icon>
+            Clienti
+            <ion-badge item-right>{{clientiSize}}</ion-badge>
         </ion-item>
+
+        <ion-item (click)="gotoProdotti()">
+            <ion-icon name="list" item-left></ion-icon>
+            Catalogo Prodotti
+            <ion-badge item-right>{{prodottiSize}}</ion-badge>
+        </ion-item>
+
+        <ion-item (click)="gotoOrdini()">
+            <ion-icon name="list" item-left></ion-icon>
+            Ordini
+            <ion-badge item-right>{{ordiniSize}}</ion-badge>
+        </ion-item>
+
+        <ion-item (click)="gotoNuovoOrdine()">
+            <ion-icon name="add-circle" item-left></ion-icon>
+            Nuovo Ordine
+        </ion-item>
+
+        <ion-item (click)="gotoSincronizzazioneDati()">
+            <ion-icon name="refresh-circle" item-left></ion-icon>
+            Sincronizzazione Dati
+        </ion-item>
+
+
         <ion-item (click)="logout()">
             <ion-icon name="exit" item-left></ion-icon>
             Logout

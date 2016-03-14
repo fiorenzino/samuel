@@ -10,7 +10,7 @@ export class OrdiniService {
         this.ordine = new Ordine();
     }
 
-    add(ordine:Ordine) {
+    save(ordine:Ordine) {
         this.ordini.push(ordine);
     }
 
